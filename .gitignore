@@ -1,0 +1,15 @@
+# Full essay text, scans and model outputs stay local (APWA terms: no full reproduction).
+# Anchored with a leading slash so site/data/ (the public build) is NOT ignored.
+/survey/
+/data/
+/db/
+/transcriptions/
+/enrich/
+/site/data/local/
+*.sqlite
+*.pdf
+*.png
+# Internal planning notes (name staff, quote correspondence): never public.
+/PIPELINE_SKETCH.md
+__pycache__/
+.DS_Store

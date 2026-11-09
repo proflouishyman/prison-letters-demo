@@ -1,0 +1,811 @@
+{
+ "fixture": true,
+ "generated_at": "2026-11-09T00:00:00Z",
+ "entities": [
+  {
+   "post_id": 900001,
+   "type": "facility",
+   "text": "Placeholder Facility 4"
+  },
+  {
+   "post_id": 900001,
+   "type": "place",
+   "text": "Fixture Place C"
+  },
+  {
+   "post_id": 900001,
+   "type": "place",
+   "text": "Fixture Place A"
+  },
+  {
+   "post_id": 900001,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900001,
+   "type": "condition",
+   "text": "fixture condition noise"
+  },
+  {
+   "post_id": 900001,
+   "type": "condition",
+   "text": "fixture condition delay"
+  },
+  {
+   "post_id": 900001,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900002,
+   "type": "facility",
+   "text": "Placeholder Facility 1"
+  },
+  {
+   "post_id": 900002,
+   "type": "facility",
+   "text": "Placeholder Facility 4"
+  },
+  {
+   "post_id": 900002,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900002,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900002,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900002,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900002,
+   "type": "condition",
+   "text": "fixture condition cold"
+  },
+  {
+   "post_id": 900002,
+   "type": "program",
+   "text": "Sample Program 3"
+  },
+  {
+   "post_id": 900002,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900002,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900002,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900003,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900003,
+   "type": "condition",
+   "text": "fixture condition crowding"
+  },
+  {
+   "post_id": 900003,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900003,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900004,
+   "type": "place",
+   "text": "Fixture Place A"
+  },
+  {
+   "post_id": 900004,
+   "type": "place",
+   "text": "Fixture Place F"
+  },
+  {
+   "post_id": 900004,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900004,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900004,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900004,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900004,
+   "type": "condition",
+   "text": "fixture condition delay"
+  },
+  {
+   "post_id": 900004,
+   "type": "program",
+   "text": "Sample Program 3"
+  },
+  {
+   "post_id": 900004,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900004,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900005,
+   "type": "facility",
+   "text": "Placeholder Facility 3"
+  },
+  {
+   "post_id": 900005,
+   "type": "place",
+   "text": "Fixture Place D"
+  },
+  {
+   "post_id": 900005,
+   "type": "organization",
+   "text": "Fake Organization 1"
+  },
+  {
+   "post_id": 900005,
+   "type": "organization",
+   "text": "Fake Organization 4"
+  },
+  {
+   "post_id": 900005,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900005,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900005,
+   "type": "condition",
+   "text": "fixture condition noise"
+  },
+  {
+   "post_id": 900005,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900005,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900005,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900005,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900005,
+   "type": "cultural_work",
+   "text": "Made-up Work 3"
+  },
+  {
+   "post_id": 900006,
+   "type": "place",
+   "text": "Fixture Place C"
+  },
+  {
+   "post_id": 900006,
+   "type": "place",
+   "text": "Fixture Place B"
+  },
+  {
+   "post_id": 900006,
+   "type": "organization",
+   "text": "Fake Organization 1"
+  },
+  {
+   "post_id": 900006,
+   "type": "organization",
+   "text": "Fake Organization 2"
+  },
+  {
+   "post_id": 900006,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900006,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900006,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900006,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900006,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900006,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900007,
+   "type": "facility",
+   "text": "Placeholder Facility 2"
+  },
+  {
+   "post_id": 900007,
+   "type": "organization",
+   "text": "Fake Organization 1"
+  },
+  {
+   "post_id": 900007,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900007,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900007,
+   "type": "program",
+   "text": "Sample Program 3"
+  },
+  {
+   "post_id": 900007,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900008,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900008,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900008,
+   "type": "condition",
+   "text": "fixture condition noise"
+  },
+  {
+   "post_id": 900008,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900008,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900008,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900008,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900009,
+   "type": "facility",
+   "text": "Placeholder Facility 1"
+  },
+  {
+   "post_id": 900009,
+   "type": "place",
+   "text": "Fixture Place C"
+  },
+  {
+   "post_id": 900009,
+   "type": "organization",
+   "text": "Fake Organization 4"
+  },
+  {
+   "post_id": 900009,
+   "type": "organization",
+   "text": "Fake Organization 2"
+  },
+  {
+   "post_id": 900009,
+   "type": "condition",
+   "text": "fixture condition cold"
+  },
+  {
+   "post_id": 900009,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900009,
+   "type": "program",
+   "text": "Sample Program 3"
+  },
+  {
+   "post_id": 900009,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900010,
+   "type": "facility",
+   "text": "Placeholder Facility 1"
+  },
+  {
+   "post_id": 900010,
+   "type": "place",
+   "text": "Fixture Place E"
+  },
+  {
+   "post_id": 900010,
+   "type": "place",
+   "text": "Fixture Place A"
+  },
+  {
+   "post_id": 900010,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900010,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900010,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900010,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900011,
+   "type": "facility",
+   "text": "Placeholder Facility 3"
+  },
+  {
+   "post_id": 900011,
+   "type": "facility",
+   "text": "Placeholder Facility 2"
+  },
+  {
+   "post_id": 900011,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900011,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900011,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900011,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900011,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900011,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900012,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900012,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900013,
+   "type": "place",
+   "text": "Fixture Place A"
+  },
+  {
+   "post_id": 900013,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900013,
+   "type": "organization",
+   "text": "Fake Organization 4"
+  },
+  {
+   "post_id": 900013,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900013,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900013,
+   "type": "condition",
+   "text": "fixture condition noise"
+  },
+  {
+   "post_id": 900013,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900013,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900013,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900014,
+   "type": "facility",
+   "text": "Placeholder Facility 5"
+  },
+  {
+   "post_id": 900014,
+   "type": "facility",
+   "text": "Placeholder Facility 1"
+  },
+  {
+   "post_id": 900014,
+   "type": "organization",
+   "text": "Fake Organization 2"
+  },
+  {
+   "post_id": 900014,
+   "type": "condition",
+   "text": "fixture condition delay"
+  },
+  {
+   "post_id": 900014,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900014,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900014,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900014,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900014,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900014,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900015,
+   "type": "facility",
+   "text": "Placeholder Facility 3"
+  },
+  {
+   "post_id": 900015,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900015,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900015,
+   "type": "condition",
+   "text": "fixture condition crowding"
+  },
+  {
+   "post_id": 900015,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900015,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900016,
+   "type": "facility",
+   "text": "Placeholder Facility 4"
+  },
+  {
+   "post_id": 900016,
+   "type": "place",
+   "text": "Fixture Place E"
+  },
+  {
+   "post_id": 900016,
+   "type": "place",
+   "text": "Fixture Place B"
+  },
+  {
+   "post_id": 900016,
+   "type": "organization",
+   "text": "Fake Organization 4"
+  },
+  {
+   "post_id": 900016,
+   "type": "condition",
+   "text": "fixture condition crowding"
+  },
+  {
+   "post_id": 900016,
+   "type": "event",
+   "text": "Invented Event 3"
+  },
+  {
+   "post_id": 900016,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900016,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900016,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900017,
+   "type": "place",
+   "text": "Fixture Place B"
+  },
+  {
+   "post_id": 900017,
+   "type": "place",
+   "text": "Fixture Place A"
+  },
+  {
+   "post_id": 900017,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900017,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900017,
+   "type": "cultural_work",
+   "text": "Made-up Work 3"
+  },
+  {
+   "post_id": 900018,
+   "type": "facility",
+   "text": "Placeholder Facility 4"
+  },
+  {
+   "post_id": 900018,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900018,
+   "type": "organization",
+   "text": "Fake Organization 2"
+  },
+  {
+   "post_id": 900018,
+   "type": "law_policy",
+   "text": "Imaginary Policy 2"
+  },
+  {
+   "post_id": 900018,
+   "type": "law_policy",
+   "text": "Imaginary Policy 3"
+  },
+  {
+   "post_id": 900018,
+   "type": "condition",
+   "text": "fixture condition silence"
+  },
+  {
+   "post_id": 900018,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900018,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900018,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900018,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900018,
+   "type": "cultural_work",
+   "text": "Made-up Work 1"
+  },
+  {
+   "post_id": 900018,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900019,
+   "type": "facility",
+   "text": "Placeholder Facility 3"
+  },
+  {
+   "post_id": 900019,
+   "type": "facility",
+   "text": "Placeholder Facility 4"
+  },
+  {
+   "post_id": 900019,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900019,
+   "type": "condition",
+   "text": "fixture condition crowding"
+  },
+  {
+   "post_id": 900019,
+   "type": "program",
+   "text": "Sample Program 2"
+  },
+  {
+   "post_id": 900019,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900019,
+   "type": "event",
+   "text": "Invented Event 1"
+  },
+  {
+   "post_id": 900019,
+   "type": "event",
+   "text": "Invented Event 2"
+  },
+  {
+   "post_id": 900019,
+   "type": "cultural_work",
+   "text": "Made-up Work 2"
+  },
+  {
+   "post_id": 900020,
+   "type": "facility",
+   "text": "Placeholder Facility 1"
+  },
+  {
+   "post_id": 900020,
+   "type": "place",
+   "text": "Fixture Place B"
+  },
+  {
+   "post_id": 900020,
+   "type": "organization",
+   "text": "Fake Organization 4"
+  },
+  {
+   "post_id": 900020,
+   "type": "organization",
+   "text": "Fake Organization 3"
+  },
+  {
+   "post_id": 900020,
+   "type": "law_policy",
+   "text": "Imaginary Policy 4"
+  },
+  {
+   "post_id": 900020,
+   "type": "law_policy",
+   "text": "Imaginary Policy 1"
+  },
+  {
+   "post_id": 900020,
+   "type": "condition",
+   "text": "fixture condition noise"
+  },
+  {
+   "post_id": 900020,
+   "type": "program",
+   "text": "Sample Program 1"
+  },
+  {
+   "post_id": 900020,
+   "type": "program",
+   "text": "Sample Program 2"
+  }
+ ]
+}

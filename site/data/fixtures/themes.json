@@ -1,0 +1,286 @@
+{
+ "fixture": true,
+ "generated_at": "2026-11-09T00:00:00Z",
+ "themes": [
+  {
+   "post_id": 900001,
+   "subjects": [
+    "Fixture subject B",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "love",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900002,
+   "subjects": [
+    "Fixture subject C",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "dignity",
+    "hope"
+   ],
+   "sentiment": "negative",
+   "stance": "creative",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900003,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "humour",
+    "hope"
+   ],
+   "sentiment": "mixed",
+   "stance": "testifying",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900004,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "fear",
+    "hope"
+   ],
+   "sentiment": "neutral",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900005,
+   "subjects": [
+    "Fixture subject B",
+    "Fixture subject A"
+   ],
+   "affect": [
+    "faith",
+    "love"
+   ],
+   "sentiment": "mixed",
+   "stance": "testifying",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900006,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject B"
+   ],
+   "affect": [
+    "faith",
+    "humour"
+   ],
+   "sentiment": "mixed",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900007,
+   "subjects": [
+    "Fixture subject B",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "dignity",
+    "fear"
+   ],
+   "sentiment": "positive",
+   "stance": "describing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900008,
+   "subjects": [
+    "Fixture subject D",
+    "Fixture subject A"
+   ],
+   "affect": [
+    "isolation",
+    "grief"
+   ],
+   "sentiment": "negative",
+   "stance": "reflecting",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900009,
+   "subjects": [
+    "Fixture subject B",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "love",
+    "grief"
+   ],
+   "sentiment": "negative",
+   "stance": "describing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900010,
+   "subjects": [
+    "Fixture subject D",
+    "Fixture subject B"
+   ],
+   "affect": [
+    "faith",
+    "anger"
+   ],
+   "sentiment": "neutral",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900011,
+   "subjects": [
+    "Fixture subject D",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "humour",
+    "grief"
+   ],
+   "sentiment": "neutral",
+   "stance": "creative",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900012,
+   "subjects": [
+    "Fixture subject C",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "humour",
+    "hope"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900013,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject B"
+   ],
+   "affect": [
+    "isolation",
+    "faith"
+   ],
+   "sentiment": "positive",
+   "stance": "testifying",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900014,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "fear",
+    "hope"
+   ],
+   "sentiment": "negative",
+   "stance": "describing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900015,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject B"
+   ],
+   "affect": [
+    "love",
+    "hope"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900016,
+   "subjects": [
+    "Fixture subject A",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "love",
+    "resilience"
+   ],
+   "sentiment": "positive",
+   "stance": "reflecting",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900017,
+   "subjects": [
+    "Fixture subject D",
+    "Fixture subject C"
+   ],
+   "affect": [
+    "grief",
+    "love"
+   ],
+   "sentiment": "mixed",
+   "stance": "arguing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900018,
+   "subjects": [
+    "Fixture subject D",
+    "Fixture subject B"
+   ],
+   "affect": [
+    "fear",
+    "grief"
+   ],
+   "sentiment": "neutral",
+   "stance": "testifying",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900019,
+   "subjects": [
+    "Fixture subject C",
+    "Fixture subject D"
+   ],
+   "affect": [
+    "grief",
+    "faith"
+   ],
+   "sentiment": "negative",
+   "stance": "describing",
+   "model": "fixture-model"
+  },
+  {
+   "post_id": 900020,
+   "subjects": [
+    "Fixture subject B",
+    "Fixture subject A"
+   ],
+   "affect": [
+    "anger",
+    "love"
+   ],
+   "sentiment": "neutral",
+   "stance": "arguing",
+   "model": "fixture-model"
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "fixture": true,
+ "generated_at": "2026-11-09T00:00:00Z",
+ "git_sha": "0000000-fixture",
+ "models": {
+  "embedding": [
+   "Xenova/bge-small-en-v1.5"
+  ],
+  "entities": [
+   "fixture-model"
+  ],
+  "themes": [
+   "fixture-model"
+  ],
+  "transcription": [
+   "pdf-text-layer",
+   "qwen3-vl:32b",
+   "qwen3-vl:8b-instruct-q8_0",
+   "richardyoung/olmocr2:7b-q8"
+  ]
+ },
+ "counts": {
+  "essays": 20,
+  "chunks": 40,
+  "entities_public": 161,
+  "entities_unverified_dropped": 0,
+  "entities_person_dropped": 0,
+  "themes": 20,
+  "demo_letters": 20
+ },
+ "snippet_chars": 160,
+ "max_exposure": 0.15,
+ "exposure": {
+  "fraction": 0.0,
+  "percent": 0.0,
+  "chars_published": 0,
+  "chars_total": 0
+ }
+}

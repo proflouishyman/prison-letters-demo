@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prison Letters Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="banner" hidden></div>
+<header>
+  <h1>Prison letters: a small demo</h1>
+  <p class="lead">Twenty letters from the American Prison Writing Archive, used to ask three questions about
+  AI tools that run on local computers. Full essays are not shown here; the archive remains the place to read them.</p>
+  <nav aria-label="Sections">
+    <a href="#accuracy">1. Transcription</a>
+    <a href="#search">2. Search</a>
+    <a href="#contents">3. What's in the letters</a>
+  </nav>
+</header>
+<div id="errors" role="alert"></div>
+<main id="app" hidden>
+  <section id="accuracy"></section>
+  <section id="search"></section>
+  <section id="contents"></section>
+</main>
+<footer id="footer"></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

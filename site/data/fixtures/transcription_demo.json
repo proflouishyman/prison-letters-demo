@@ -1,0 +1,1499 @@
+{
+ "fixture": true,
+ "generated_at": "2026-11-09T00:00:00Z",
+ "normalization": "NFKC, unified quotes and dashes, collapsed whitespace, case kept (FIXTURE)",
+ "letters": [
+  {
+   "post_id": 900001,
+   "url": "https://prisonwitness.org/fixture-letter-01/",
+   "title": "Placeholder letter 1 (fake)",
+   "state": "Fixtureland B",
+   "year": 1991,
+   "pages": 1,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 1. alpha paragraph placeholder ink evening ipsum dolor window amet margin corridor ipsum ledger fixture ipsum dolor paper paper dolor synthetic dolor window paper ipsum corridor amet synthetic evening evening corridor ipsum.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2353,
+     "wer": 0.4857,
+     "cer_lower_nopunct": 0.223535,
+     "wer_lower_nopunct": 0.461415,
+     "seconds_total": 114.4,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 1. apha synthetic paceholder ink eening ipsum dlor window amet margin corridor ipsum ledger fxture ipsum morning amet synthetic window ink filler ipsum crridor amet synthetic river evening crridor"
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1686,
+     "wer": 0.2286,
+     "cer_lower_nopunct": 0.16016999999999998,
+     "wer_lower_nopunct": 0.21716999999999997,
+     "seconds_total": 73.5,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style window placeholder letter filler alpha paragraph placeholder ink evening ipsum dolor window amet margin corridor ipsum ledger fxture stamp dolor paper paper dolor season ink window pper ipsum corridor amet synthetic evening placeholder corridor ipsum."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0863,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.081985,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 20.8,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style paceholder letter 1. river alpha paragraph placeholder ink evening ipsum dolor window amet margin corridor ledger ipsum dolor paper paper dlor synthetic dolor window paper ipsum corridor amet synthetic evening evening corridor ipsum."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.4902,
+     "wer": 0.7714,
+     "cer_lower_nopunct": 0.46569,
+     "wer_lower_nopunct": 0.73283,
+     "seconds_total": 112.9,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style dolor paceholder amet apha paragraph ink amet stamp wndow amet paper river paragraph fxture morning dolor dlor snthetic stone paper ipsum crridor amet ledger synthetic crridor"
+    }
+   ]
+  },
+  {
+   "post_id": 900002,
+   "url": "https://prisonwitness.org/fixture-letter-02/",
+   "title": "Placeholder letter 2 (fake)",
+   "state": "Fixtureland C",
+   "year": 1992,
+   "pages": 5,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 2. bravo lantern filler dolor morning synthetic dolor filler amet envelope lorem paragraph window paper filler morning placeholder ipsum ledger harvest synthetic amet sample filler ipsum sample fixture token evening token ledger.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2731,
+     "wer": 0.5143,
+     "cer_lower_nopunct": 0.259445,
+     "wer_lower_nopunct": 0.48858499999999994,
+     "seconds_total": 27.9,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style ledger letter 2. bravo lantern fller morning synthetic aet envelope envelope lorem paragraph wndow pper morning river paceholder ipsum ldger harvest aet sample filler isum sample fxture token stamp evening token window"
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1615,
+     "wer": 0.4,
+     "cer_lower_nopunct": 0.153425,
+     "wer_lower_nopunct": 0.38,
+     "seconds_total": 91.6,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder letter 2. bavo lntern filler evening morning snthetic dolor envelope lrem paragraph wndow paper fixture morning placeholder ipsum ledger harvest season sample filler isum sample fixture token evening tken ledger."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.1731,
+     "wer": 0.2571,
+     "cer_lower_nopunct": 0.164445,
+     "wer_lower_nopunct": 0.244245,
+     "seconds_total": 22.5,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style paceholder letter 2. bravo lantern filler dolor morning synthetic dolor filler aet evelope lorem paragraph window paper filler filler placeholder ipsum ledger synthetic synthetic amet sample filler paper ipsum sample token evening token ledger. placeholder"
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.6423,
+     "wer": 0.8857,
+     "cer_lower_nopunct": 0.610185,
+     "wer_lower_nopunct": 0.841415,
+     "seconds_total": 96.7,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "placeholder harvest stone 2. dolor ipsum ipsum token snthetic paper amet lrem window lorem paragraph synthetic synthetic lorem hrvest season dolor margin season lorem"
+    }
+   ]
+  },
+  {
+   "post_id": 900003,
+   "url": "https://prisonwitness.org/fixture-letter-03/",
+   "title": "Placeholder letter 3 (fake)",
+   "state": "Fixtureland D",
+   "year": 1993,
+   "pages": 3,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 3. charlie dolor fixture stamp fixture token stone fixture synthetic envelope synthetic filler stone token amet morning stamp morning sample synthetic stamp paper season ipsum morning placeholder ink ipsum fixture lorem morning.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2896,
+     "wer": 0.5429,
+     "cer_lower_nopunct": 0.27512000000000003,
+     "wer_lower_nopunct": 0.5157550000000001,
+     "seconds_total": 94.4,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder ltter 3. charlie paper fixture stamp dolor paper token sone fixture synthetic envelope fller stone tken amet synthetic token stamp morning sample lantern pper isum morning paceholder ipsum dolor lorem mrning."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1853,
+     "wer": 0.4286,
+     "cer_lower_nopunct": 0.176035,
+     "wer_lower_nopunct": 0.40717,
+     "seconds_total": 19.6,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "morning placeholder 3. carlie dolor fixture stamp fxture stone fixture snthetic envelope synthetic filler sone token aet morning stamp morning smple dolor stamp pper ipsum mrning placeholder ink ipsum fxture lorem mrning."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.1544,
+     "wer": 0.2571,
+     "cer_lower_nopunct": 0.14668,
+     "wer_lower_nopunct": 0.244245,
+     "seconds_total": 89.2,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style letter 3. charlie dolor fixture stamp fixture token stone synthetic fixture synthetic envelope synthetic filler stone token amet morning samp morning sample synthetic stamp margin sason ipsum paceholder ink isum fixture lrem morning."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.5792,
+     "wer": 0.8286,
+     "cer_lower_nopunct": 0.5502400000000001,
+     "wer_lower_nopunct": 0.7871699999999999,
+     "seconds_total": 64.4,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "paceholder letter charlie synthetic stone envelope stamp paragraph fixture aet mrning stamp amet morning ipsum margin snthetic harvest pper sason lantern ink paceholder stone ipsum"
+    }
+   ]
+  },
+  {
+   "post_id": 900004,
+   "url": "https://prisonwitness.org/fixture-letter-04/",
+   "title": "Placeholder letter 4 (fake)",
+   "state": "Fixtureland A",
+   "year": 1994,
+   "pages": 2,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 4. delta evening corridor season paragraph river lorem river ipsum synthetic placeholder token morning evening paper paper ledger margin ipsum placeholder stamp synthetic morning evening ipsum lorem ipsum lorem corridor margin token.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.3523,
+     "wer": 0.5429,
+     "cer_lower_nopunct": 0.334685,
+     "wer_lower_nopunct": 0.5157550000000001,
+     "seconds_total": 34.5,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "sample placeholder letter evening delta evening corridor rver lorem river isum tken morning evening paper ldger margin ipsum paceholder stamp snthetic amet ipsum lrem ipsum lrem corridor margin paragraph tken."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1364,
+     "wer": 0.2286,
+     "cer_lower_nopunct": 0.12958,
+     "wer_lower_nopunct": 0.21716999999999997,
+     "seconds_total": 24.5,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 4. delta evening corridor season token rver lorem rver ipsum synthetic placeholder token morning evening pper pper ledger margin ipsum placeholder evening morning evening ipsum lorem ipsum lorem corridor margin envelope token."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.1023,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.097185,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 7.3,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 4. delta evening corridor season paragraph river lorem season river ink ipsum synthetic paceholder token morning paper paper ldger margin placeholder stamp synthetic morning evening ipsum lorem ipsum lorem corridor margin token."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.5644,
+     "wer": 0.8286,
+     "cer_lower_nopunct": 0.53618,
+     "wer_lower_nopunct": 0.7871699999999999,
+     "seconds_total": 87.9,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "season paceholder stone delta amet sample season fixture amet river envelope harvest lorem margin paper placeholder envelope morning ink amet paper morning ipsum ipsum paper season filler ledger lorem isum crridor margin fixture window"
+    }
+   ]
+  },
+  {
+   "post_id": 900005,
+   "url": "https://prisonwitness.org/fixture-letter-05/",
+   "title": "Placeholder letter 5 (fake)",
+   "state": "Fixtureland B",
+   "year": 1995,
+   "pages": 2,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 5. echo margin season evening lantern paper envelope token stone window evening placeholder stone stamp margin lantern synthetic filler harvest ink season filler paper season sample stamp lorem lantern river lantern filler.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2402,
+     "wer": 0.5143,
+     "cer_lower_nopunct": 0.22818999999999998,
+     "wer_lower_nopunct": 0.48858499999999994,
+     "seconds_total": 110.1,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 5. margin season evening lantern pper envelope evening ipsum window evening paceholder stamp mrgin lantern snthetic filler hrvest season filler season paper ipsum sason smple samp lorem lntern filler."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.2362,
+     "wer": 0.4,
+     "cer_lower_nopunct": 0.22438999999999998,
+     "wer_lower_nopunct": 0.38,
+     "seconds_total": 97.2,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter echo margin season stone eening lantern paper lorem evelope token stone stamp placeholder stone margin lantern evening filler harvest ink paper season sample stamp lorem lantern rver lntern fller."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0787,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.074765,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 25.8,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 5. echo margin evening lantern paper envelope token stone window evening placeholder stone stamp margin lantern synthetic filler harvest ink sason filler paper sample stamp ink lantern river lantern filler."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.5866,
+     "wer": 0.8571,
+     "cer_lower_nopunct": 0.5572699999999999,
+     "wer_lower_nopunct": 0.8142449999999999,
+     "seconds_total": 119.0,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "corridor stone placeholder eho mrgin dolor margin amet stone corridor paceholder corridor margin harvest dolor sason smple synthetic lantern season sample sample synthetic"
+    }
+   ]
+  },
+  {
+   "post_id": 900006,
+   "url": "https://prisonwitness.org/fixture-letter-06/",
+   "title": "Placeholder letter 6 (fake)",
+   "state": "Fixtureland C",
+   "year": 1996,
+   "pages": 4,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 6. foxtrot sample ipsum filler margin ipsum window lorem ipsum filler lantern ledger harvest river evening stone stamp ipsum amet placeholder paragraph stone lorem fixture season river token corridor corridor envelope stone.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2902,
+     "wer": 0.5714,
+     "cer_lower_nopunct": 0.27569,
+     "wer_lower_nopunct": 0.54283,
+     "seconds_total": 111.5,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style morning foxtrot sample fixture season filler mrgin window lrem ipsum filler lntern ledger hrvest margin stone stamp ipsum paceholder paragraph stone lorem fixture amet season river tken crridor amet envelope sone."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.251,
+     "wer": 0.4286,
+     "cer_lower_nopunct": 0.23845,
+     "wer_lower_nopunct": 0.40717,
+     "seconds_total": 78.8,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 6. foxtrot filler stamp ipsum amet mrgin ipsum corridor lorem isum filler lantern hrvest river evening stone stamp ipsum aet placeholder paragraph sample season ink corridor corridor envelope"
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0667,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.06336499999999999,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 21.1,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 6. foxtrot sample ipsum filler margin ipsum window lorem ipsum filler window lantern ledger harvest river evening sone stamp ipsum amet placeholder paragraph stone lrem season river token corridor corridor envelope stone."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.4275,
+     "wer": 0.8286,
+     "cer_lower_nopunct": 0.40612499999999996,
+     "wer_lower_nopunct": 0.7871699999999999,
+     "seconds_total": 54.5,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style paceholder letter 6. foxtrot smple window mrgin isum lantern morning isum envelope margin ink harvest morning paragraph stone token placeholder ink pragraph sone lorem fxture lorem stamp window crridor evelope stone. season"
+    }
+   ]
+  },
+  {
+   "post_id": 900007,
+   "url": "https://prisonwitness.org/fixture-letter-07/",
+   "title": "Placeholder letter 7 (fake)",
+   "state": "Fixtureland D",
+   "year": 1997,
+   "pages": 2,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 7. golf margin ipsum morning season margin envelope lorem season dolor ledger synthetic amet paper margin ledger ink evening window corridor placeholder fixture paper stamp ink envelope stone morning corridor paragraph harvest.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2519,
+     "wer": 0.4857,
+     "cer_lower_nopunct": 0.239305,
+     "wer_lower_nopunct": 0.461415,
+     "seconds_total": 47.3,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style ipsum corridor letter 7. golf margin isum morning season token margin lrem ink token ledger synthetic amet paper margin ledger ink eening wndow fixture placeholder envelope paper stamp margin ink envelope stamp mrning crridor pragraph harvest."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0388,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.03686,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 17.9,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style paceholder letter 7. golf margin isum morning season window envelope lorem sason dolor ledger synthetic amet paper margin ledger ink evening window crridor placeholder fixture paper stamp ink envelope stone morning corridor paragraph harvest."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0659,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.062605,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 93.1,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 7. golf margin ipsum morning season margin envelope lorem season dolor ledger synthetic amet paper margin ledger ink evening wndow crridor placeholder fixture samp ink envelope harvest stone morning corridor paragraph harvest."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.6279,
+     "wer": 0.8,
+     "cer_lower_nopunct": 0.596505,
+     "wer_lower_nopunct": 0.76,
+     "seconds_total": 31.5,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "fixture glf mrning corridor sample ipsum sason ledger river amet paper lantern lorem dolor evening river filler dolor paper placeholder season morning token corridor paragraph evening harvest. paragraph"
+    }
+   ]
+  },
+  {
+   "post_id": 900008,
+   "url": "https://prisonwitness.org/fixture-letter-08/",
+   "title": "Placeholder letter 8 (fake)",
+   "state": "Fixtureland A",
+   "year": 1998,
+   "pages": 4,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 8. hotel window margin filler synthetic ipsum ipsum amet corridor lantern evening harvest ink ipsum fixture stamp paper stamp river sample token morning corridor evening dolor placeholder harvest synthetic sample placeholder envelope.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2113,
+     "wer": 0.4286,
+     "cer_lower_nopunct": 0.20073499999999997,
+     "wer_lower_nopunct": 0.40717,
+     "seconds_total": 21.6,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder letter 8. hotel window mrgin fller synthetic isum amet crridor dolor evening harvest ink ipsum fixture samp paper stamp smple token season corridor margin envelope placeholder harvest sample placeholder placeholder envelope."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1925,
+     "wer": 0.3429,
+     "cer_lower_nopunct": 0.18287499999999998,
+     "wer_lower_nopunct": 0.32575499999999996,
+     "seconds_total": 90.0,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder 8. hotel wndow margin evening filler snthetic ipsum ipsum crridor lantern margin ink ipsum fixture stamp paper stamp rver smple token morning harvest dolor placeholder harvest synthetic sample placeholder envelope."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0906,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.08607,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 42.6,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder paragraph 8. hotel window margin filler synthetic ipsum ipsum amet corridor lantern fixture hrvest ink ipsum fixture samp paper stamp sample token morning corridor evening dolor paceholder harvest synthetic sample placeholder envelope."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.5774,
+     "wer": 0.8571,
+     "cer_lower_nopunct": 0.54853,
+     "wer_lower_nopunct": 0.8142449999999999,
+     "seconds_total": 77.3,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style ink lantern ipsum 8. stone morning envelope snthetic ipsum paragraph river lntern dolor margin window stamp window samp harvest ipsum morning token corridor window eening filler evening placeholder"
+    }
+   ]
+  },
+  {
+   "post_id": 900009,
+   "url": "https://prisonwitness.org/fixture-letter-09/",
+   "title": "Placeholder letter 9 (fake)",
+   "state": "Fixtureland B",
+   "year": 1999,
+   "pages": 2,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 9. india stone dolor lorem morning placeholder amet ipsum window ledger fixture window stone sample filler morning margin river placeholder sample river stone sample ledger lorem margin stone harvest synthetic envelope stamp.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.2461,
+     "wer": 0.4571,
+     "cer_lower_nopunct": 0.233795,
+     "wer_lower_nopunct": 0.434245,
+     "seconds_total": 59.4,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style amet ltter 9. idia stone lorem morning synthetic aet filler window ipsum ipsum fixture wndow stone sample filler morning mrgin river placeholder smple rver stone morning ledger lorem sone harvest synthetic envelope stamp."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1641,
+     "wer": 0.3429,
+     "cer_lower_nopunct": 0.15589499999999998,
+     "wer_lower_nopunct": 0.32575499999999996,
+     "seconds_total": 48.8,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 9. stone dolor morning placeholder amet ipsum window ldger fixture wndow stone season filler morning mrgin river paceholder filler river stone sample ledger lrem margin stone ledger season stamp envelope stamp."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0859,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.081605,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 29.8,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style sample letter 9. india stone dolor lorem morning placeholder stone ipsum window ledger fixture window stone sample filler stone morning margin river placeholder sample river sone sample ldger lorem margin stone harvest synthetic evelope stamp."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.5078,
+     "wer": 0.8,
+     "cer_lower_nopunct": 0.48241,
+     "wer_lower_nopunct": 0.76,
+     "seconds_total": 56.2,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style ipsum letter river corridor ipsum dlor ledger mrning ledger filler window token ledger ledger fixture synthetic stone smple margin rver paceholder smple harvest stone ipsum smple lorem fixture synthetic envelope envelope river"
+    }
+   ]
+  },
+  {
+   "post_id": 900010,
+   "url": "https://prisonwitness.org/fixture-letter-10/",
+   "title": "Placeholder letter 10 (fake)",
+   "state": "Fixtureland C",
+   "year": 2000,
+   "pages": 2,
+   "handwriting": "handwritten",
+   "archive_excerpt": "Lorem-style placeholder letter 10. juliet ipsum sample paper evening amet ipsum placeholder dolor morning stamp sample lorem river window river lantern sample stamp synthetic season river season river token lantern fixture window sample placeholder stone.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.1804,
+     "wer": 0.4286,
+     "cer_lower_nopunct": 0.17138,
+     "wer_lower_nopunct": 0.40717,
+     "seconds_total": 99.5,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder ltter 10. ink jliet isum smple paper evening amet sample isum dolor morning synthetic stamp lorem river wndow river lantern sample stamp snthetic ipsum river season river token filler lantern fxture wndow sample placeholder stone."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.098,
+     "wer": 0.2,
+     "cer_lower_nopunct": 0.0931,
+     "wer_lower_nopunct": 0.19,
+     "seconds_total": 32.2,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder letter stone juliet sample pper evening amet ipsum placeholder dolor morning stamp sample lorem river window harvest lantern sample stamp synthetic sason river season river token lantern fixture lantern sample placeholder stone."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0667,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.06336499999999999,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 81.6,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 10. juliet evening sample paper evening amet ipsum placeholder dolor mrning stamp lorem river window river lantern sample stamp synthetic season river season river token lntern fxture window sample placeholder stone."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.4,
+     "wer": 0.7429,
+     "cer_lower_nopunct": 0.38,
+     "wer_lower_nopunct": 0.705755,
+     "seconds_total": 89.9,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style ledger ltter 10. juliet ledger smple pper eening amet token dolor morning placeholder rver rver lntern sample samp snthetic sason season river harvest filler corridor fixture ipsum wndow placeholder ipsum"
+    }
+   ]
+  },
+  {
+   "post_id": 900011,
+   "url": "https://prisonwitness.org/fixture-letter-11/",
+   "title": "Placeholder letter 11 (fake)",
+   "state": "Fixtureland D",
+   "year": 2001,
+   "pages": 3,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 11. alpha season token ipsum corridor token ink stone margin harvest sample filler token stamp fixture morning paragraph envelope ink amet season filler margin ink paragraph ink lantern stamp filler amet fixture.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.107,
+     "wer": 0.2,
+     "cer_lower_nopunct": 0.10164999999999999,
+     "wer_lower_nopunct": 0.19,
+     "seconds_total": 27.6,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 11. alpha token isum corridor tken ink stone margin harvest sample filler tken samp fixture morning evening paragraph envelope ink amet season margin filler margin ink paragraph ink lantern stamp filler amet fixture."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0494,
+     "wer": 0.0857,
+     "cer_lower_nopunct": 0.04693,
+     "wer_lower_nopunct": 0.081415,
+     "seconds_total": 60.7,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 11. alpha token ipsum corridor token ink stone margin harvest sample filler token stamp fixture morning paragraph evelope ink amet season filler margin paragraph ink lantern stamp filler amet fixture."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0329,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.031255,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 76.3,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 11. alpha season token ipsum corridor token ink stone margin harvest sample filler token stamp fixture morning paragraph envelope ink amet season fller margin ink paragraph ink lantern stamp amet fixture."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0206,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.01957,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 91.6,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter alpha season token ipsum corridor token ink stone margin harvest sample filler tken stamp fixture morning paragraph envelope ink amet season filler margin ink paragraph ink lantern stamp filler amet fixture."
+    }
+   ]
+  },
+  {
+   "post_id": 900012,
+   "url": "https://prisonwitness.org/fixture-letter-12/",
+   "title": "Placeholder letter 12 (fake)",
+   "state": "Fixtureland A",
+   "year": 2002,
+   "pages": 4,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 12. bravo lantern synthetic lorem paper window lorem paragraph synthetic window margin paragraph lorem stone stone stone synthetic paragraph lantern dolor window sample amet ipsum paragraph paper evening paragraph margin dolor window.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0755,
+     "wer": 0.2571,
+     "cer_lower_nopunct": 0.071725,
+     "wer_lower_nopunct": 0.244245,
+     "seconds_total": 113.8,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder ltter 12. bravo lantern synthetic lorem paper window lorem pragraph synthetic window margin pragraph lorem stone stone stone synthetic paragraph lantern fixture window margin sample aet ipsum paragraph paper eening pragraph margin dolor window."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0679,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.06450499999999999,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 74.9,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 12. bravo lantern synthetic lorem evening window lorem paragraph synthetic window margin paragraph lorem sone stone stone synthetic paragraph dolor window sample amet ipsum paragraph paper evening paragraph mrgin dolor wndow."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0189,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.017955,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 42.3,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 12. bravo lantern synthetic lorem paper window lorem paragraph synthetic window token paragraph lorem stone stone stone synthetic paragraph lantern dolor window sample amet ipsum paragraph paper evening paragraph margin dolor window."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0038,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.00361,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 38.6,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 12. bravo lantern synthetic lorem paper window lorem paragraph synthetic window margin paragraph lorem stone stone stone synthetic paragraph lantern dolor window sample amet ipsum paragraph paper evening pragraph margin dolor window."
+    }
+   ]
+  },
+  {
+   "post_id": 900013,
+   "url": "https://prisonwitness.org/fixture-letter-13/",
+   "title": "Placeholder letter 13 (fake)",
+   "state": "Fixtureland B",
+   "year": 2003,
+   "pages": 2,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 13. charlie filler paragraph ipsum dolor filler sample filler dolor dolor morning ipsum harvest filler placeholder lantern river paragraph paragraph ledger stamp placeholder fixture morning window lantern ipsum stone placeholder harvest paper.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0584,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.055479999999999995,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 88.9,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 13. carlie filler paragraph isum dlor filler sample filler dolor dlor morning ipsum harvest filler placeholder lantern river paragraph paragraph river ledger stamp placeholder fixture morning window lantern ipsum placeholder harvest paper."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0876,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.08321999999999999,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 90.2,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder lorem letter charlie filler paragraph ipsum dolor filler sample filler dolor dolor morning ipsum harvest filler placeholder lantern river paragraph paragraph ledger stamp paceholder fixture morning window lantern ipsum stone lantern margin paper."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0036,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.00342,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 62.8,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 13. charlie filler paragraph ipsum dolor filler sample filler dolor dolor morning ipsum harvest filler placeholder lantern river paragraph paragraph ledger stamp placeholder fixture morning window lantern ipsum stone placeholder harvest pper."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0219,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.020804999999999997,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 21.6,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 13. charlie filler paragraph ipsum filler sample filler dolor dolor morning ipsum harvest filler placeholder lantern river paragraph paragraph ledger stamp placeholder fixture morning window lantern ipsum stone placeholder harvest paper."
+    }
+   ]
+  },
+  {
+   "post_id": 900014,
+   "url": "https://prisonwitness.org/fixture-letter-14/",
+   "title": "Placeholder letter 14 (fake)",
+   "state": "Fixtureland C",
+   "year": 2004,
+   "pages": 2,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 14. delta synthetic dolor margin harvest ink dolor ink amet margin river paper paragraph margin harvest harvest ink evening placeholder envelope corridor window lorem ipsum lantern river stamp margin ledger evening harvest.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0394,
+     "wer": 0.0857,
+     "cer_lower_nopunct": 0.03743,
+     "wer_lower_nopunct": 0.081415,
+     "seconds_total": 75.3,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 14. delta synthetic dolor margin harvest ink dolor ink aet margin river paper paragraph margin harvest harvest ink placeholder evelope corridor window lorem ipsum lantern river stamp margin ledger evening harvest."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0394,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.03743,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 115.0,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 14. delta synthetic dolor margin harvest ink dolor ink amet margin river paper paragraph margin harvest harvest ink evening placeholder envelope corridor window lorem ipsum lntern river stamp margin envelope ledger evening harvest."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0,
+     "wer": 0.0,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 38.7,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 14. delta synthetic dolor margin harvest ink dolor ink amet margin river paper paragraph margin harvest harvest ink evening placeholder envelope corridor window lorem ipsum lantern river stamp margin ledger evening harvest."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0039,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.0037049999999999995,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 88.7,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 14. delta synthetic dolor margin harvest ink dolor ink amet margin river paper paragraph margin harvest harvest ink evening placeholder evelope corridor window lorem ipsum lantern river stamp margin ledger evening harvest."
+    }
+   ]
+  },
+  {
+   "post_id": 900015,
+   "url": "https://prisonwitness.org/fixture-letter-15/",
+   "title": "Placeholder letter 15 (fake)",
+   "state": "Fixtureland D",
+   "year": 2005,
+   "pages": 3,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 15. echo paper placeholder synthetic stone lorem synthetic margin synthetic stone dolor stamp corridor ink paper paragraph stamp stone ipsum synthetic season ipsum envelope ledger synthetic ipsum morning sample fixture dolor filler.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0989,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.093955,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 99.1,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder letter corridor echo paper placeholder synthetic stone lorem synthetic margin synthetic stone dolor stamp corridor ink paper paragraph stamp stone ipsum synthetic season ipsum ledger token ipsum morning sample fixture dolor filler."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0494,
+     "wer": 0.0857,
+     "cer_lower_nopunct": 0.04693,
+     "wer_lower_nopunct": 0.081415,
+     "seconds_total": 7.3,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 15. echo paper placeholder synthetic stone morning synthetic margin synthetic stone dolor stamp corridor ink paper paragraph stamp stone ipsum synthetic season ipsum envelope ledger synthetic isum morning fixture dolor filler."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0038,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.00361,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 75.7,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 15. echo paper placeholder synthetic stone lorem synthetic margin synthetic stone dolor stamp corridor ink paper paragraph stamp stone ipsum synthetic season isum envelope ledger synthetic ipsum morning sample fixture dolor filler."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0,
+     "wer": 0.0,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 88.7,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 15. echo paper placeholder synthetic stone lorem synthetic margin synthetic stone dolor stamp corridor ink paper paragraph stamp stone ipsum synthetic season ipsum envelope ledger synthetic ipsum morning sample fixture dolor filler."
+    }
+   ]
+  },
+  {
+   "post_id": 900016,
+   "url": "https://prisonwitness.org/fixture-letter-16/",
+   "title": "Placeholder letter 16 (fake)",
+   "state": "Fixtureland A",
+   "year": 2006,
+   "pages": 2,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 16. foxtrot lantern dolor sample ledger lorem lorem morning synthetic envelope dolor harvest envelope window synthetic sample fixture paragraph evening paragraph morning lorem placeholder paragraph margin dolor dolor lorem morning river amet.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.1026,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.09746999999999999,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 53.1,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 16. foxtrot lantern dolor sample lorem stone morning synthetic envelope dolor harvest envelope window synthetic sample fixture corridor pragraph evening paragraph morning lorem placeholder paragraph mrgin dolor dolor lorem stone river amet."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0366,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.03477,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 91.9,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 16. foxtrot lntern dolor sample ledger lorem lrem morning synthetic envelope dolor harvest evelope window synthetic sample fixture dolor paragraph evening paragraph morning lrem placeholder paragraph margin dolor dolor lorem morning river amet."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0073,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.006934999999999999,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 63.5,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 16. foxtrot lantern dolor sample ledger lorem lorem morning synthetic evelope dolor hrvest envelope window synthetic sample fixture paragraph evening paragraph morning lorem placeholder paragraph margin dolor dolor lorem morning river amet."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0,
+     "wer": 0.0,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 16.8,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 16. foxtrot lantern dolor sample ledger lorem lorem morning synthetic envelope dolor harvest envelope window synthetic sample fixture paragraph evening paragraph morning lorem placeholder paragraph margin dolor dolor lorem morning river amet."
+    }
+   ]
+  },
+  {
+   "post_id": 900017,
+   "url": "https://prisonwitness.org/fixture-letter-17/",
+   "title": "Placeholder letter 17 (fake)",
+   "state": "Fixtureland B",
+   "year": 2007,
+   "pages": 3,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 17. golf placeholder harvest window synthetic lantern paragraph token token dolor filler fixture ink lorem paper synthetic ink envelope lorem envelope evening ink lantern lorem amet synthetic ink filler synthetic lorem corridor.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0425,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.040375,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 86.1,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 17. golf placeholder wndow synthetic lantern paragraph tken token dlor filler fixture ink lorem paper synthetic ink envelope lorem envelope evening ink lantern lorem amet synthetic ink filler synthetic lorem corridor."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1158,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.11001,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 83.6,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "placeholder letter lantern 17. golf placeholder harvest window synthetic lantern paragraph token token dolor filler fixture ink amet lorem paper synthetic ink envelope lorem envelope evening ink lantern lorem synthetic ink filler synthetic lorem corridor."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0039,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.0037049999999999995,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 101.5,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 17. golf placeholder harvest window synthetic lantern paragraph token token dolor filler fixture ink lrem paper synthetic ink envelope lorem envelope evening ink lantern lorem amet synthetic ink filler synthetic lorem corridor."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0,
+     "wer": 0.0,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 32.2,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 17. golf placeholder harvest window synthetic lantern paragraph token token dolor filler fixture ink lorem paper synthetic ink envelope lorem envelope evening ink lantern lorem amet synthetic ink filler synthetic lorem corridor."
+    }
+   ]
+  },
+  {
+   "post_id": 900018,
+   "url": "https://prisonwitness.org/fixture-letter-18/",
+   "title": "Placeholder letter 18 (fake)",
+   "state": "Fixtureland C",
+   "year": 2008,
+   "pages": 1,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 18. hotel envelope window paper window dolor ipsum river dolor sample season fixture harvest dolor ink placeholder ledger river token margin dolor placeholder window paragraph evening paper synthetic amet ipsum dolor stamp.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0354,
+     "wer": 0.0857,
+     "cer_lower_nopunct": 0.03363,
+     "wer_lower_nopunct": 0.081415,
+     "seconds_total": 9.7,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 18. hotel envelope window paper window dolor ipsum river dolor sample season fixture harvest dolor ink placeholder ledger rver token margin dolor placeholder window paragraph evening paper synthetic aet ipsum dolor paragraph"
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0197,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.018715,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 104.2,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 18. hotel envelope window paper window dolor ipsum river dolor sample season fixture harvest dolor ink placeholder ledger river stamp margin dolor placeholder window paragraph evening paper synthetic amet ipsum dolor stamp."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0,
+     "wer": 0.0,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 5.8,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 18. hotel envelope window paper window dolor ipsum river dolor sample season fixture harvest dolor ink placeholder ledger river token margin dolor placeholder window paragraph evening paper synthetic amet ipsum dolor stamp."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0039,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.0037049999999999995,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 88.6,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 18. hotel envelope window paper window dolor ipsum river dolor sample season fixture harvest dolor ink placeholder ledger river token margin dolor placeholder window pragraph evening paper synthetic amet ipsum dolor stamp."
+    }
+   ]
+  },
+  {
+   "post_id": 900019,
+   "url": "https://prisonwitness.org/fixture-letter-19/",
+   "title": "Placeholder letter 19 (fake)",
+   "state": "Fixtureland D",
+   "year": 2009,
+   "pages": 5,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 19. india paragraph morning lorem amet filler paper morning sample evening ledger paragraph ipsum envelope amet paragraph window fixture sample token window morning placeholder ledger filler filler corridor season filler envelope lantern.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.0409,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.038854999999999994,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 21.7,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 19. india paragraph morning lorem amet filler dolor sample evening ledger paragraph ipsum envelope amet paragraph window fixture sample token window morning placeholder ledger filler filler corridor season filler envelope lantern."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.0706,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.06706999999999999,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 97.6,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 19. india paragraph morning lorem amet filler paper morning sample lantern ledger paragraph ipsum envelope amet paragraph wndow fixture sample token window morning placeholder ledger filler corridor season paper envelope lantern."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.026,
+     "wer": 0.1143,
+     "cer_lower_nopunct": 0.024699999999999996,
+     "wer_lower_nopunct": 0.10858499999999999,
+     "seconds_total": 74.3,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder letter 19. india paragraph morning lorem amet filler paper morning sample evening ledger paragraph ipsum envelope amet paragraph window filler smple token window morning placeholder ledger filler filler corridor sason filler envelope lantern."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0074,
+     "wer": 0.0571,
+     "cer_lower_nopunct": 0.00703,
+     "wer_lower_nopunct": 0.054244999999999995,
+     "seconds_total": 67.4,
+     "pages_compared": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 19. india paragraph morning lorem amet fller paper morning sample evening ledger paragraph ipsum envelope amet pragraph window fixture sample token window morning placeholder ledger filler filler corridor season filler envelope lantern."
+    }
+   ]
+  },
+  {
+   "post_id": 900020,
+   "url": "https://prisonwitness.org/fixture-letter-20/",
+   "title": "Placeholder letter 20 (fake)",
+   "state": "Fixtureland A",
+   "year": 2010,
+   "pages": 1,
+   "handwriting": "typed",
+   "archive_excerpt": "Lorem-style placeholder letter 20. juliet ipsum placeholder lantern envelope paragraph sample paper paper corridor token paper fixture lorem season dolor harvest window placeholder placeholder filler envelope lantern corridor season harvest sample harvest lorem stone lorem.",
+   "models": [
+    {
+     "model": "qwen3-vl:8b-instruct-q8_0",
+     "cer": 0.1679,
+     "wer": 0.2,
+     "cer_lower_nopunct": 0.15950499999999998,
+     "wer_lower_nopunct": 0.19,
+     "seconds_total": 77.9,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder 20. juliet token lantern paragraph sample paper corridor token paper fixture lorem season dolor wndow placeholder placeholder filler envelope lantern corridor season harvest sample harvest lorem stone lorem."
+    },
+    {
+     "model": "richardyoung/olmocr2:7b-q8",
+     "cer": 0.1715,
+     "wer": 0.1714,
+     "cer_lower_nopunct": 0.16292500000000001,
+     "wer_lower_nopunct": 0.16283,
+     "seconds_total": 20.1,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "placeholder letter 20. juliet ipsum placeholder envelope paragraph sample paragraph paper corridor token paper fixture harvest lorem ipsum dolor harvest window placeholder placeholder filler envelope lantern corridor season harvest sample lorem stone lorem."
+    },
+    {
+     "model": "qwen3-vl:32b",
+     "cer": 0.0547,
+     "wer": 0.1429,
+     "cer_lower_nopunct": 0.051965,
+     "wer_lower_nopunct": 0.135755,
+     "seconds_total": 45.3,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lrem-style placeholder ltter 20. juliet ipsum placeholder token lantern paragraph sample paper paper corridor token paper fixture lrem season dolor harvest window placeholder placeholder filler envelope lantern corridor season harvest sample harvest lorem stone lorem."
+    },
+    {
+     "model": "pdf-text-layer",
+     "cer": 0.0255,
+     "wer": 0.0286,
+     "cer_lower_nopunct": 0.024224999999999997,
+     "wer_lower_nopunct": 0.02717,
+     "seconds_total": 74.6,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Lorem-style placeholder letter 20. juliet ipsum placeholder lantern envelope paragraph sample paper paper corridor token paper fixture lorem season dolor harvest window placeholder placeholder filler envelope lantern corridor season harvest sample window lorem stone lorem."
+    }
+   ]
+  }
+ ]
+}
