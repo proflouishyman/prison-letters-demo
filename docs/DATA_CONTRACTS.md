@@ -139,6 +139,12 @@ Run: `swift scripts/ocr_boxes.swift data/pages enrich/page_boxes.jsonl <comma-se
                "words": [ {"text": str, "box": [x0, y0, x1, y1]} ] } ] }
 ```
 All keys are required; unknown keys, wrong types or a box outside the page fail the build (`crops.load_page_boxes`).
+**Tesseract gap-fill.** After the Swift pass, `python3 scripts/ocr_merge_tesseract.py` adds Tesseract (`--psm 4`) lines
+wherever Vision found no overlapping line (Vision still skips some lines, mostly on typed pages). Added lines carry the
+optional key `source: "tesseract"` (absent = Vision); Vision lines are never replaced. The page `engine` string records
+how many lines were added. Re-running is idempotent.
+Crops: a line outside the snippet's matched lines blocks a crop unless it is masked, is the letter's own archive text,
+or sits vertically between the first and last matched lines (inside the passage).
 A page with zero recognized lines is valid (and simply yields no crops). Vision cannot read most handwriting, so such
 pages have few or garbled lines; their snippets then fall below the alignment threshold and are counted unaligned.
 

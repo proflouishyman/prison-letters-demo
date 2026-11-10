@@ -102,3 +102,13 @@ Solution
 An outside line no longer blocks a crop when it is the letter's own archive text (in_archive); it still passes through the name/ID/address masks. Unexplained outside text still blocks. Aligned snippets 56 -> 81 of 91.
 Notes
 The remaining 10 are genuine OCR misses (Vision did not read those lines), reported as low similarity.
+
+[2026-11-10] - Remaining crop misses: Vision skipped typed lines; garbled in-passage lines blocked crops
+Problem
+After strip OCR, 10 snippets still had no crop (8 low similarity, 2 blocked by an "outside" line).
+Root Cause
+Apple Vision still skipped whole lines on several typed pages (136440 p1, 138462 p1, 138495 p3), so those snippets had no text to match; two crops were blocked by garbled OCR reads ("at ta ananaa") of lines inside the passage itself.
+Solution
+scripts/ocr_merge_tesseract.py adds Tesseract lines only where Vision has none (optional line key source="tesseract"); crops.py lets a line between the first and last matched lines show (it is inside the passage; masks still apply). 87 of 91 snippets now have crops.
+Notes
+Left unmatched on purpose: 141270-1 (handwriting, sim 0.545) and 138720 essay/demo (newspaper columns, 0.578), plus 144627-1 (a garbled line just outside the passage). Their scores are close to the 0.535 seen for wrong pages, so lowering the 0.60 threshold would risk wrong crops.

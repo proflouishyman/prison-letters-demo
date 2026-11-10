@@ -1,7 +1,7 @@
 {
  "fixture": false,
- "generated_at": "2026-11-10T15:35:35Z",
- "git_sha": "c923968",
+ "generated_at": "2026-11-10T15:47:09Z",
+ "git_sha": "402f4c5",
  "models": {
   "embedding": [
    "Xenova/bge-small-en-v1.5"
@@ -28,8 +28,8 @@
   "entities_person_dropped": 39,
   "themes": 20,
   "demo_letters": 20,
-  "crops": 81,
-  "crops_unaligned": 10,
+  "crops": 87,
+  "crops_unaligned": 4,
   "text_redactions": 11
  },
  "snippet_chars": 100,
@@ -43,48 +43,18 @@
  "crop_alignment": {
   "threshold": 0.6,
   "aligned": {
-   "chunk": 43,
+   "chunk": 49,
    "essay": 19,
    "demo": 19
   },
   "unaligned": {
-   "chunk": 8,
+   "chunk": 2,
    "essay": 1,
    "demo": 1
   },
-  "similarity_min": 0.6289,
-  "similarity_median": 0.9082,
+  "similarity_min": 0.6667,
+  "similarity_median": 0.9479,
   "unaligned_list": [
-   {
-    "target": "chunk",
-    "id": "136440-1",
-    "reason": "best similarity 0.477 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "137829-1",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "138462-0",
-    "reason": "best similarity 0.505 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138462-1",
-    "reason": "best similarity 0.531 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138462-2",
-    "reason": "best similarity 0.495 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138495-4",
-    "reason": "best similarity 0.505 < 0.6"
-   },
    {
     "target": "chunk",
     "id": "141270-1",
@@ -109,14 +79,14 @@
  },
  "image_exposure": {
   "cap": 0.6,
-  "overall": 0.177664,
+  "overall": 0.179766,
   "max": 0.391331,
-  "mean": 0.165331,
+  "mean": 0.166937,
   "per_letter": [
    {
     "post_id": 136440,
-    "fraction": 0.098576,
-    "crops": 4
+    "fraction": 0.130619,
+    "crops": 5
    },
    {
     "post_id": 136842,
@@ -140,18 +110,18 @@
    },
    {
     "post_id": 137829,
-    "fraction": 0.196032,
-    "crops": 3
+    "fraction": 0.221458,
+    "crops": 4
    },
    {
     "post_id": 138462,
-    "fraction": 0.122212,
-    "crops": 2
+    "fraction": 0.144068,
+    "crops": 5
    },
    {
     "post_id": 138495,
-    "fraction": 0.116014,
-    "crops": 6
+    "fraction": 0.112904,
+    "crops": 7
    },
    {
     "post_id": 138720,
@@ -190,7 +160,7 @@
    },
    {
     "post_id": 142503,
-    "fraction": 0.189755,
+    "fraction": 0.145657,
     "crops": 4
    },
    {

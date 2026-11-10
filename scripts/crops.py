@@ -40,6 +40,7 @@ TARGETS = ("chunk", "essay", "demo")
 
 PAGE_ROW = {"post_id": int, "page": int, "width": int, "height": int, "engine": str, "created_at": str, "lines": list}
 LINE = {"text": str, "confidence": (int, float), "box": list, "words": list}
+LINE_OPTIONAL = {"source": str}  # "tesseract" on lines added by ocr_merge_tesseract.py; absent = Apple Vision
 
 
 def load_page_boxes(path):
@@ -59,7 +60,9 @@ def load_page_boxes(path):
         W, H = row["width"], row["height"]
         for j, ln in enumerate(row["lines"]):
             lw = f"{where} line[{j}]"
-            _check(ln, LINE, lw)
+            _check(ln, LINE, lw, LINE_OPTIONAL)
+            if ln.get("source", "tesseract") != "tesseract":
+                raise PipelineError(f"{lw}: source must be 'tesseract' when present")
             b = ln["box"]
             if len(b) != 4 or not all(isinstance(v, int) and not isinstance(v, bool) for v in b) \
                     or not (0 <= b[0] < b[2] <= W and 0 <= b[1] < b[3] <= H):
@@ -77,11 +80,12 @@ def load_page_boxes(path):
     return out
 
 
-def _check(obj, spec, where):
-    """Strict shape check: exact key set, exact types (bool is never an int)."""
+def _check(obj, spec, where, optional=None):
+    """Strict shape check: exact key set (plus any `optional` keys), exact types (bool is never an int)."""
     if not isinstance(obj, dict):
         raise PipelineError(f"{where}: expected an object")
-    if set(obj) != set(spec):
+    optional = optional or {}
+    if not set(spec) <= set(obj) or set(obj) - set(spec) - set(optional):
         raise PipelineError(f"{where}: fields {sorted(obj)} != required {sorted(spec)}")
     for k, t in spec.items():
         if isinstance(obj[k], bool) or not isinstance(obj[k], t):
@@ -350,11 +354,15 @@ def compute_crops(snippets, boxes, essays, pages_dir, threshold, max_image_expos
                               "box": [b[0], max(b[1], box[1]), b[2], min(b[3], box[3])]})
         wholly = {m["line"] for m in allm if m["reason"] != "person"}  # lines blacked out entirely
         matched_ids = {id(l) for l in lines}
+        top_m, bot_m = min(l["box"][1] for l in lines), max(l["box"][3] for l in lines)
         outside = [ln for i, ln in enumerate(row["lines"]) if id(ln) not in matched_ids and i not in wholly
                    and overlap_rows(ln["box"], box) > OUTSIDE_TOL * (ln["box"][3] - ln["box"][1])
                    # A neighbouring line that is the letter's own published text (found in the archive transcript)
                    # may show; it still went through the name/ID masks above. Only unexplained text blocks a crop.
-                   and not in_archive(ln["text"], archives.get(pid, ""))]
+                   and not in_archive(ln["text"], archives.get(pid, ""))
+                   # A line sitting between the snippet's first and last matched lines is inside the passage itself
+                   # (typically a garbled OCR read of one of its lines); it is not header text above or below.
+                   and not (top_m < (ln["box"][1] + ln["box"][3]) / 2 < bot_m)]
         if outside:
             stats["dropped_outside_lines"] += 1
             unaligned.append({"target": sn["target"], "id": sn["id"], "reason":
