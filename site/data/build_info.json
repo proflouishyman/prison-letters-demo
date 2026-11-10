@@ -1,7 +1,7 @@
 {
  "fixture": false,
- "generated_at": "2026-11-10T15:00:36Z",
- "git_sha": "ad24c4b",
+ "generated_at": "2026-11-10T15:17:29Z",
+ "git_sha": "0f8c9f2",
  "models": {
   "embedding": [
    "Xenova/bge-small-en-v1.5"
@@ -14,6 +14,7 @@
   ],
   "transcription": [
    "mlx-community/Qwen3-VL-32B-Instruct-4bit",
+   "mlx-community/Qwen3-VL-8B-Instruct-8bit",
    "pdf-text-layer",
    "qwen3-vl:8b-instruct-q8_0",
    "richardyoung/olmocr2:7b-q8"
@@ -29,7 +30,7 @@
   "demo_letters": 20,
   "crops": 44,
   "crops_unaligned": 47,
-  "text_redactions": 28
+  "text_redactions": 30
  },
  "snippet_chars": 100,
  "max_exposure": 0.15,

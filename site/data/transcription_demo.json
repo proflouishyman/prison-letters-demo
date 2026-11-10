@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T15:00:34Z",
+ "generated_at": "2026-11-10T15:17:27Z",
  "normalization": "NFKC; curly quotes -> straight; en/em/minus dashes -> '-'; whitespace collapsed; case kept. Variant (*_lower_nopunct): additionally lowercased with all punctuation removed. CER over characters, WER over whitespace tokens, both against the archive's human transcript.",
  "letters": [
   {
@@ -79,6 +79,24 @@
      "excerpt": "THE COURT ROOM BATTLE FIELD \"Until lions write books, history will always glorify the hunter.\" Proverb The recent media coverage concerning the particular terms of the",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.028351881293057764,
+     "wer": 0.05909797822706065,
+     "cer_lower_nopunct": 0.024657534246575342,
+     "wer_lower_nopunct": 0.04739336492890995,
+     "seconds_total": 257.14,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "",
+     "failed_pages": 0,
+     "failures": [],
+     "excerpt_unaligned": true
     }
    ]
   },
@@ -159,6 +177,22 @@
      "excerpt": "Humanity Dear (People), why is it (Not) understood that Even by an Huge of (US) in (Free)Dom) is also (Affected) by DisProportionate) #'s of US, whom are (Incarcerated).??;",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.24773960216998192,
+     "wer": 0.6212534059945504,
+     "cer_lower_nopunct": 0.16584158415841585,
+     "wer_lower_nopunct": 0.2401129943502825,
+     "seconds_total": 89.42,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Humanity Dear (People), Why is it (Not) understood that Even by an Huge of (US) in (Freedom) is also (Affected) by The (Huge Disproportionate) #'s of US, whom are",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -234,6 +268,24 @@
      "cer_lower_nopunct": 0.011581545471805581,
      "wer_lower_nopunct": 0.023890784982935155,
      "seconds_total": 796.62,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "State-Sanctioned Vengeance By Beverly Jaynes Even in Missouri, the second-most executing state in the nation, legislators are now poised to repeal our Law of death penalty. Conservatives",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.016272189349112426,
+     "wer": 0.06681766704416761,
+     "cer_lower_nopunct": 0.007404594645908487,
+     "wer_lower_nopunct": 0.02957906712172924,
+     "seconds_total": 167.89,
      "pages_compared": [
       1,
       2,
@@ -329,6 +381,24 @@
      "excerpt": "How Do WE Do It? WE watch them on T.V. Read about them in our NEWSPAPER. HEAR about them on the radio AND from various CONVERSATIONS. So why do WE ignore what is so obvious to",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.08387096774193549,
+     "wer": 0.13626373626373625,
+     "cer_lower_nopunct": 0.07195357833655706,
+     "wer_lower_nopunct": 0.12307692307692308,
+     "seconds_total": 82.06,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "How Do We Do It? We watch them on T.V. Read about them in our newspaper. Hear about them on the radio and from various conversations. So why do we ignore what is so obvious to",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -397,6 +467,22 @@
      "cer_lower_nopunct": 0.0029455081001472753,
      "wer_lower_nopunct": 0.009302325581395349,
      "seconds_total": 114.79,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Al Cunningham ███ ███ NO MORE DEATH PENALTY After a year study, the independent, non-partisan California Commission on the Fair Administration of Justice published their",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.0035919540229885057,
+     "wer": 0.013953488372093023,
+     "cer_lower_nopunct": 0.0029455081001472753,
+     "wer_lower_nopunct": 0.009302325581395349,
+     "seconds_total": 69.43,
      "pages_compared": [
       1
      ],
@@ -492,6 +578,25 @@
      "failed_pages": 0,
      "failures": [],
      "excerpt_unaligned": true
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.04195432819968136,
+     "wer": 0.03934426229508197,
+     "cer_lower_nopunct": 0.040637012630422846,
+     "wer_lower_nopunct": 0.03691275167785235,
+     "seconds_total": 124.41,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "",
+     "failed_pages": 0,
+     "failures": [],
+     "excerpt_unaligned": true
     }
    ]
   },
@@ -568,6 +673,22 @@
      "excerpt": "In. From times immemorial up to this present, the coven of the ill intended have been set afire and consumed by the mad pursuits of egregious endeavors cloaked under shadows of",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.01923605386095081,
+     "wer": 0.03583617747440273,
+     "cer_lower_nopunct": 0.01558515160102012,
+     "wer_lower_nopunct": 0.023131672597864767,
+     "seconds_total": 112.73,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "IN. From times immemorial up to this present, the coven of the ill intended have been set afire and consumed by the mad pursuits of egregious endeavors cloaked under shadows of",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -642,6 +763,24 @@
      "cer_lower_nopunct": 0.007345834138797603,
      "wer_lower_nopunct": 0.013888888888888888,
      "seconds_total": 508.53,
+     "pages_compared": [
+      1,
+      2,
+      3
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "\"THE RIDEOUT\" If you listen to the rhetoric of the Michigan Department of Corrections, you may be inclined to believe that they are sincere in their efforts to rehabilitate the prison population.",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.013138138138138139,
+     "wer": 0.017094017094017096,
+     "cer_lower_nopunct": 0.012178619756427604,
+     "wer_lower_nopunct": 0.014957264957264958,
+     "seconds_total": 160.26,
      "pages_compared": [
       1,
       2,
@@ -729,6 +868,22 @@
      "excerpt": "A Prisoner Tells His Tale By Matthew Hattley In Search of the Truth While reading the letters section in the February 13 issue of the Shawangunk Journal, I came across one written by Patricia Mitchell",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.07937658571946357,
+     "wer": 0.08884073672806067,
+     "cer_lower_nopunct": 0.07587111277632072,
+     "wer_lower_nopunct": 0.07516339869281045,
+     "seconds_total": 166.46,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "A Prisoner Tells His Tale By Matthew Hattley In Search of the Truth reading the letters section in the February 13 issue of the Shawangunk Journal, I came across one written by Patricia Mitchell",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -806,6 +961,22 @@
      "excerpt": "No Longer Silent Copyright (C) 2016 By Carroll No longer silent, I ain't never gonna shut up! The devil keeps trying, As he does with constant But guess what, I ain't never gonna shut up.",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.27049559981472904,
+     "wer": 0.290167865707434,
+     "cer_lower_nopunct": 0.26843657817109146,
+     "wer_lower_nopunct": 0.27817745803357313,
+     "seconds_total": 84.95,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "No longer silent, I ain't never gonna shut up! The devil keeps trying, As he does with constant But guess what, I ain't never gonna shut up.",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -877,6 +1048,23 @@
      "cer_lower_nopunct": 0.0009943652635067948,
      "wer_lower_nopunct": 0.004918032786885246,
      "seconds_total": 409.64,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "EMPLOYMENT THERE ARE A FEW JOBS THAT ARE AVAILABLE TO THE WOMEN HERE. THE PAYING JOBS ARE TWO LIBRARIANS, TWO COMPUTER LAB WORKERS, 7 INDUSTRY WORKERS, THEN THE COOK, THE BAKER IS PAID FROM EACH SHIFT",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.768678629690049,
+     "wer": 0.9704918032786886,
+     "cer_lower_nopunct": 0.001325820351342393,
+     "wer_lower_nopunct": 0.004918032786885246,
+     "seconds_total": 87.24,
      "pages_compared": [
       1,
       2
@@ -962,6 +1150,22 @@
      "excerpt": "I AIN'T DONE YET... By: King Coe I have been to Prisons where Security Staff has been short such as of course Macon and GSP. But Telfair S.P. has surpassed even the Notorious Hays S.P. This place is",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.05392809587217044,
+     "wer": 0.10317460317460317,
+     "cer_lower_nopunct": 0.030942334739803096,
+     "wer_lower_nopunct": 0.04,
+     "seconds_total": 71.49,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "I AIN'T DONE YET... By: King Coe I have been to Prisons where Security Staff has been short such as of course and GSP. But Telfair S.P. has surpassed even the Notorious Hays S.P. This place is",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1042,6 +1246,23 @@
      "excerpt": "Salutations! If you've already received the hand-written agreement?, then you were expecting this journal entry. Years ago, Dr. Cornell West said \"having a GED is the equivalent of being",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.022325581395348838,
+     "wer": 0.10540540540540541,
+     "cer_lower_nopunct": 0.005822416302765648,
+     "wer_lower_nopunct": 0.02702702702702703,
+     "seconds_total": 67.35,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Dear APWA, Salutations! IF you're already received the hand-written agreement?, than you were expecting this journal entry. Years ago, Dr. Cornell West said \"having a GED is the equivalent of being",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1113,6 +1334,23 @@
      "cer_lower_nopunct": 0.01970260223048327,
      "wer_lower_nopunct": 0.035555555555555556,
      "seconds_total": 335.81,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Kentucky Prisoners Respond to Low Quality Food with Rioting, Fires, and Legal Action by Corey John Richardson After spending most of 2009 defending its draconian Persistent Felony Offender laws which",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.022793053545586108,
+     "wer": 0.037694013303769404,
+     "cer_lower_nopunct": 0.01970260223048327,
+     "wer_lower_nopunct": 0.035555555555555556,
+     "seconds_total": 114.31,
      "pages_compared": [
       1,
       2
@@ -1202,6 +1440,23 @@
      "excerpt": "\"Benevolence\" As I sit here contemplating what I would like to share with the masses, I'm left reflecting on years past. Some ask how I've been able to sustain my mental stability in such",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.03236797274275979,
+     "wer": 0.06419753086419754,
+     "cer_lower_nopunct": 0.02998696219035202,
+     "wer_lower_nopunct": 0.0472636815920398,
+     "seconds_total": 108.34,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "\"Benevolence\" As I sit here contemplating what I would like to share with the masses, I'm left reflecting on years past. Some ask how I've been able to sustain my mental stability in such",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1270,6 +1525,22 @@
      "cer_lower_nopunct": 0.002621231979030144,
      "wer_lower_nopunct": 0.007662835249042145,
      "seconds_total": 176.4,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "THIS IS JEOPARDY But not with Alex Trebek, its starring the STATE OF MICHIGAN'S ONE AND ONLY MICHIGAN DEPARTMENT OF CORRECTION (MDOC) Administration. No, we do not have any answers, therefore, you do",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.01277139208173691,
+     "wer": 0.03065134099616858,
+     "cer_lower_nopunct": 0.002621231979030144,
+     "wer_lower_nopunct": 0.007662835249042145,
+     "seconds_total": 60.03,
      "pages_compared": [
       1
      ],
@@ -1358,6 +1629,23 @@
      "excerpt": "The Pandemic Journals (Day 91: Sorrow) My name is Frederick currently an inmate at USP Tucson. I've written over 7000 pages on experiences in prison, but wanted to do a separate project",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.01156224791610648,
+     "wer": 0.0536231884057971,
+     "cer_lower_nopunct": 0.006202424584155625,
+     "wer_lower_nopunct": 0.02753623188405797,
+     "seconds_total": 126.51,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "The Pandemic Journals (Day 91: Sorrow) My name is Frederick currently an inmate at USP Tucson. I've written over 2000 pages on experiences in prison, but wanted to do a separate project,",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1438,6 +1726,23 @@
      "excerpt": "Those Who Mourn Will Be Comforted By: Eric Smalley \"Baruk (Blessed) are those who Mourn, because they shall be comforted.\" (Matthew 5:4) These are the words spoken by our Savior, Yashua Ha'Mashiak. No",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.01353904282115869,
+     "wer": 0.033277870216306155,
+     "cer_lower_nopunct": 0.0022943297279580466,
+     "wer_lower_nopunct": 0.008319467554076539,
+     "seconds_total": 121.52,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Those Who Mourn Will Be Comforted By: Eric Smalley \"Baruk (Blessed) are those who Mourn, because they shall be comforted.\" (Matthew 5:4) These are the words spoken by our Savior, Yashua Ha'Hashiak. No",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1514,6 +1819,22 @@
      "excerpt": "To read more Short Stories check out my book \"Emotions\" Charles Hill His Homesick Discourse Sat, Apr 30, 11:02 AM (7 days ago) Coming from a background of growing up in the country where growing your",
      "failed_pages": 0,
      "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.07380653266331658,
+     "wer": 0.07389162561576355,
+     "cer_lower_nopunct": 0.07284980744544288,
+     "wer_lower_nopunct": 0.07060755336617405,
+     "seconds_total": 53.68,
+     "pages_compared": [
+      1
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "To read more Short Stories check out my book \"Emotions\" Charles His Homesick Discourse Sat, Apr 30, 11:02 AM (7 days ago) Coming from a background of growing up in the country where growing your",
+     "failed_pages": 0,
+     "failures": []
     }
    ]
   },
@@ -1585,6 +1906,23 @@
      "cer_lower_nopunct": 0.0,
      "wer_lower_nopunct": 0.0,
      "seconds_total": 268.31,
+     "pages_compared": [
+      1,
+      2
+     ],
+     "partial": false,
+     "ref_word_span": null,
+     "excerpt": "Open Confession by Shukri Abu Baker November 24 marks my 14th anniversary in enforced disappearance. I am, therefore, declaring November, Injustice Awareness Month: IAM. Critical that I remained",
+     "failed_pages": 0,
+     "failures": []
+    },
+    {
+     "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "cer": 0.0009643201542912247,
+     "wer": 0.005714285714285714,
+     "cer_lower_nopunct": 0.0,
+     "wer_lower_nopunct": 0.0,
+     "seconds_total": 44.01,
      "pages_compared": [
       1,
       2
