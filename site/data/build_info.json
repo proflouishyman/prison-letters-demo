@@ -1,7 +1,7 @@
 {
  "fixture": false,
- "generated_at": "2026-11-10T15:17:29Z",
- "git_sha": "0f8c9f2",
+ "generated_at": "2026-11-10T15:29:51Z",
+ "git_sha": "4f9f1ef",
  "models": {
   "embedding": [
    "Xenova/bge-small-en-v1.5"
@@ -28,9 +28,9 @@
   "entities_person_dropped": 39,
   "themes": 20,
   "demo_letters": 20,
-  "crops": 44,
-  "crops_unaligned": 47,
-  "text_redactions": 30
+  "crops": 56,
+  "crops_unaligned": 35,
+  "text_redactions": 11
  },
  "snippet_chars": 100,
  "max_exposure": 0.15,
@@ -43,27 +43,22 @@
  "crop_alignment": {
   "threshold": 0.6,
   "aligned": {
-   "chunk": 22,
-   "essay": 11,
-   "demo": 11
+   "chunk": 28,
+   "essay": 14,
+   "demo": 14
   },
   "unaligned": {
-   "chunk": 29,
-   "essay": 9,
-   "demo": 9
+   "chunk": 23,
+   "essay": 6,
+   "demo": 6
   },
-  "similarity_min": 0.6286,
-  "similarity_median": 0.9062,
+  "similarity_min": 0.6289,
+  "similarity_median": 0.9489,
   "unaligned_list": [
    {
     "target": "chunk",
     "id": "136440-1",
-    "reason": "best similarity 0.489 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "136440-2",
-    "reason": "best similarity 0.480 < 0.6"
+    "reason": "best similarity 0.477 < 0.6"
    },
    {
     "target": "chunk",
@@ -73,42 +68,32 @@
    {
     "target": "chunk",
     "id": "136842-1",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "137559-0",
     "reason": "crop would show 3 line(s) outside the snippet's matched window"
    },
    {
     "target": "chunk",
+    "id": "137559-0",
+    "reason": "crop would show 7 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "137829-1",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
     "id": "138462-0",
-    "reason": "best similarity 0.525 < 0.6"
+    "reason": "best similarity 0.505 < 0.6"
    },
    {
     "target": "chunk",
     "id": "138462-1",
-    "reason": "best similarity 0.500 < 0.6"
+    "reason": "best similarity 0.531 < 0.6"
    },
    {
     "target": "chunk",
     "id": "138462-2",
     "reason": "best similarity 0.495 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138495-0",
-    "reason": "best similarity 0.541 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138495-1",
-    "reason": "best similarity 0.551 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "138495-3",
-    "reason": "best similarity 0.592 < 0.6"
    },
    {
     "target": "chunk",
@@ -142,23 +127,18 @@
    },
    {
     "target": "chunk",
-    "id": "138852-1",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
+    "id": "140211-2",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "141270-0",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
    },
    {
     "target": "chunk",
     "id": "141270-1",
-    "reason": "best similarity 0.455 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "141309-0",
-    "reason": "best similarity 0.510 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "141309-1",
-    "reason": "best similarity 0.598 < 0.6"
+    "reason": "best similarity 0.545 < 0.6"
    },
    {
     "target": "chunk",
@@ -168,26 +148,16 @@
    {
     "target": "chunk",
     "id": "144627-1",
-    "reason": "best similarity 0.526 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "144627-2",
-    "reason": "best similarity 0.565 < 0.6"
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
    },
    {
     "target": "chunk",
     "id": "145512-1",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
    },
    {
     "target": "chunk",
     "id": "145512-2",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "153341-0",
     "reason": "crop would show 1 line(s) outside the snippet's matched window"
    },
    {
@@ -198,12 +168,7 @@
    {
     "target": "chunk",
     "id": "153341-2",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "136440",
-    "reason": "best similarity 0.581 < 0.6"
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
    },
    {
     "target": "essay",
@@ -213,12 +178,7 @@
    {
     "target": "essay",
     "id": "137559",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "138495",
-    "reason": "best similarity 0.490 < 0.6"
+    "reason": "crop would show 5 line(s) outside the snippet's matched window"
    },
    {
     "target": "essay",
@@ -237,18 +197,8 @@
    },
    {
     "target": "essay",
-    "id": "141309",
-    "reason": "best similarity 0.462 < 0.6"
-   },
-   {
-    "target": "essay",
     "id": "153341",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "136440",
-    "reason": "best similarity 0.581 < 0.6"
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
    },
    {
     "target": "demo",
@@ -258,12 +208,7 @@
    {
     "target": "demo",
     "id": "137559",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "138495",
-    "reason": "best similarity 0.490 < 0.6"
+    "reason": "crop would show 4 line(s) outside the snippet's matched window"
    },
    {
     "target": "demo",
@@ -282,26 +227,21 @@
    },
    {
     "target": "demo",
-    "id": "141309",
-    "reason": "best similarity 0.462 < 0.6"
-   },
-   {
-    "target": "demo",
     "id": "153341",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
    }
   ]
  },
  "image_exposure": {
   "cap": 0.6,
-  "overall": 0.067512,
-  "max": 0.278396,
-  "mean": 0.09223,
+  "overall": 0.07436,
+  "max": 0.210623,
+  "mean": 0.103249,
   "per_letter": [
    {
     "post_id": 136440,
-    "fraction": 0.079217,
-    "crops": 1
+    "fraction": 0.098576,
+    "crops": 4
    },
    {
     "post_id": 136842,
@@ -310,7 +250,7 @@
    },
    {
     "post_id": 136995,
-    "fraction": 0.150606,
+    "fraction": 0.150758,
     "crops": 6
    },
    {
@@ -325,18 +265,18 @@
    },
    {
     "post_id": 137829,
-    "fraction": 0.24163,
-    "crops": 4
+    "fraction": 0.196032,
+    "crops": 3
    },
    {
     "post_id": 138462,
-    "fraction": 0.128903,
+    "fraction": 0.122212,
     "crops": 2
    },
    {
     "post_id": 138495,
-    "fraction": 0.0499,
-    "crops": 1
+    "fraction": 0.116014,
+    "crops": 6
    },
    {
     "post_id": 138720,
@@ -345,43 +285,43 @@
    },
    {
     "post_id": 138852,
-    "fraction": 0.076992,
-    "crops": 1
+    "fraction": 0.12194,
+    "crops": 2
    },
    {
     "post_id": 140211,
-    "fraction": 0.116895,
-    "crops": 5
+    "fraction": 0.090868,
+    "crops": 4
    },
    {
     "post_id": 140883,
-    "fraction": 0.229799,
+    "fraction": 0.129846,
     "crops": 3
    },
    {
     "post_id": 141270,
-    "fraction": 0.036422,
-    "crops": 1
-   },
-   {
-    "post_id": 141309,
     "fraction": 0.0,
     "crops": 0
    },
    {
+    "post_id": 141309,
+    "fraction": 0.128245,
+    "crops": 4
+   },
+   {
     "post_id": 142032,
-    "fraction": 0.09623,
+    "fraction": 0.096699,
     "crops": 3
    },
    {
     "post_id": 142503,
-    "fraction": 0.278396,
+    "fraction": 0.189755,
     "crops": 4
    },
    {
     "post_id": 144627,
-    "fraction": 0.072515,
-    "crops": 3
+    "fraction": 0.126316,
+    "crops": 4
    },
    {
     "post_id": 145512,
@@ -390,8 +330,8 @@
    },
    {
     "post_id": 153341,
-    "fraction": 0.0,
-    "crops": 0
+    "fraction": 0.210623,
+    "crops": 1
    },
    {
     "post_id": 156296,

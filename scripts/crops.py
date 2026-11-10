@@ -187,9 +187,14 @@ def _word_is_name(word, tokens):
     for t in tokens:
         if w == t or (len(t) >= 5 and (t in w or (len(w) >= 4 and fuzz.ratio(w, t) >= 80))):
             return True
+        # Handwriting misreads ("Freckerck" for "Frederick", ratio 78): a looser match when the first letter agrees.
+        # Over-masking is the safe direction for names.
+        if len(t) >= 5 and len(w) >= 5 and w[0] == t[0] and fuzz.ratio(w, t) >= NAME_LOOSE_RATIO:
+            return True
     return False
 
 
+NAME_LOOSE_RATIO = 70  # same-first-letter fuzzy name match for handwriting OCR misreads (144627 "Freckerck")
 ARCHIVE_LINE_SIM = 0.60  # a line this similar to some window of the archive transcript is the letter's own text
 
 

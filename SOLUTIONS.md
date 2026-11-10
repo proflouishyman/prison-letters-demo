@@ -2,6 +2,23 @@
 
 Bug-fix log (format per AGENTS.md).
 
+[2026-11-10] - Vision dropped lines on full pages, so human-transcription excerpts showed "no matching scan region"
+Problem
+The 136440 demo/essay excerpts ("THE COURT ROOM IS A BATTLE FIELD ... Until lions write books ... The recent media coverage")
+were unaligned although the text is plainly on the scan.
+Root Cause
+Apple Vision VNRecognizeTextRequest run on the whole page silently drops lines (136440 p1: 9 lines of ~25; it missed the quote
+and the first paragraph). Revision 3, minimumTextHeight 0 and language correction did not help. The alignment then had no OCR
+text to match against.
+Solution
+scripts/ocr_boxes.swift now also runs Vision over overlapping full-width strips (band 500 px, step 350 px, regionOfInterest;
+boxes mapped from ROI-relative to page pixels, checked by drawing them on 136440 p1) and merges the whole-page and strip lines
+by IoU / containment + text similarity, preferring lines not cut by a strip edge. The whole page stays a candidate source
+because strips alone lost a few lines the full-page pass had found. Contract section 5 updated; engine string records parameters.
+Notes
+Lines over the 36 pages 843 -> 1076. Vision still skips some lines even in strips (e.g. mid-paragraph lines on 136440 p1), so
+alignment counts remain floors. Crops are regenerated with masking applied to all of them.
+
 [2026-11-10] - Public model excerpts and scan crops exposed prison IDs, addresses and a victim's name the archive omitted
 Problem
 The archive's human transcripts deliberately omit authors' prison ID numbers and mailing addresses, but the live public
@@ -65,3 +82,13 @@ so the log is live even if the process is killed. Any page that fails after its 
 connection errors, gets a fail_NNN.json (written in the retry loop's else-branch, covering every exception), so no page
 can be skipped silently. Failures from before this change (136842, 140883 on 32b) have no record and cannot be
 reconstructed; the 32b rerun will produce either a page or a record for each.
+
+[2026-11-10] - Misread handwritten name escaped the crop mask
+Problem
+After the strip-OCR change, crop 144627_p1_0/_2 showed "My name is Frederick Mason" unmasked.
+Root Cause
+Vision re-read the name as "Freckerck Maxs"; the person-name match needed fuzz.ratio >= 80 and "freckerck" vs "frederick" scores 78.
+Solution
+crops._word_is_name also accepts a same-first-letter match at NAME_LOOSE_RATIO (70) for tokens of 5+ chars; the name span then extends over the adjacent capitalized word. Over-masking is the safe direction for names.
+Notes
+Regression test: scripts/test_crops_names.py. Fuzzy name matching on handwriting OCR stays a backstop; the manager's by-eye crop review before every push remains required.

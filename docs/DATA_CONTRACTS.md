@@ -123,6 +123,12 @@ transcription nor a failure record is a hard error in `compare.py`.
 ### `page_boxes.jsonl` (local only, never published), written by `scripts/ocr_boxes.swift`
 Line and word boxes of the page scans, from Apple's Vision framework (`VNRecognizeTextRequest`, `.accurate`, language
 correction off, run locally: no cloud service, no LLM). Used only to locate text on the page, never as a transcription.
+Vision silently drops lines when run on a whole page (136440 p1: 9 of ~25), so each page is read once whole and again as
+overlapping full-width strips (`regionOfInterest`; band 500 px, step 350 px, constants in the script). Candidates from all
+passes are merged: two lines are the same if their boxes have IoU >= 0.5, or the smaller box is >= 70% inside the other and
+the texts are similar. Of a duplicate group, a line not cut by an interior strip edge wins (a box within 3 px of one is
+"cut"), then the longer text, then higher confidence; a cut line survives only if nothing else matches it. Words travel
+with their line. `engine` records the strip parameters.
 Run: `swift scripts/ocr_boxes.swift data/pages enrich/page_boxes.jsonl <comma-separated post_ids>`. One row per page:
 ```
 { "post_id": int, "page": int (1-based), "width": int, "height": int,   # pixels of data/pages/<post_id>/page_NNN.png
