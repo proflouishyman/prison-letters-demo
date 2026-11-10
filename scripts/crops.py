@@ -313,7 +313,7 @@ def compute_crops(snippets, boxes, essays, pages_dir, threshold, max_image_expos
     archives: {post_id: norm_lower_nopunct(transcript)}; lines found in it are never header-block/short-line masked.
     names: {post_id: set of lowercase name tokens} (see name_tokens) for person masking; absent = no person masks.
     Each crop row carries `masked` (black boxes, source-page pixels, clipped to the crop). A crop is DROPPED (counted in
-    `unaligned`) when a page line outside the snippet's matched window overlaps it and is not itself masked.
+    `unaligned`) when a page line outside the snippet's matched window overlaps it, is not itself masked and is not the letter's own archive text.
     `mask_stats` counts the masks in the kept image files by reason, plus the number of crops dropped for that cause.
     """
     names = names or {}
@@ -351,7 +351,10 @@ def compute_crops(snippets, boxes, essays, pages_dir, threshold, max_image_expos
         wholly = {m["line"] for m in allm if m["reason"] != "person"}  # lines blacked out entirely
         matched_ids = {id(l) for l in lines}
         outside = [ln for i, ln in enumerate(row["lines"]) if id(ln) not in matched_ids and i not in wholly
-                   and overlap_rows(ln["box"], box) > OUTSIDE_TOL * (ln["box"][3] - ln["box"][1])]
+                   and overlap_rows(ln["box"], box) > OUTSIDE_TOL * (ln["box"][3] - ln["box"][1])
+                   # A neighbouring line that is the letter's own published text (found in the archive transcript)
+                   # may show; it still went through the name/ID masks above. Only unexplained text blocks a crop.
+                   and not in_archive(ln["text"], archives.get(pid, ""))]
         if outside:
             stats["dropped_outside_lines"] += 1
             unaligned.append({"target": sn["target"], "id": sn["id"], "reason":

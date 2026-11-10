@@ -1,7 +1,7 @@
 {
  "fixture": false,
- "generated_at": "2026-11-10T15:29:51Z",
- "git_sha": "4f9f1ef",
+ "generated_at": "2026-11-10T15:35:35Z",
+ "git_sha": "c923968",
  "models": {
   "embedding": [
    "Xenova/bge-small-en-v1.5"
@@ -28,8 +28,8 @@
   "entities_person_dropped": 39,
   "themes": 20,
   "demo_letters": 20,
-  "crops": 56,
-  "crops_unaligned": 35,
+  "crops": 81,
+  "crops_unaligned": 10,
   "text_redactions": 11
  },
  "snippet_chars": 100,
@@ -43,37 +43,22 @@
  "crop_alignment": {
   "threshold": 0.6,
   "aligned": {
-   "chunk": 28,
-   "essay": 14,
-   "demo": 14
+   "chunk": 43,
+   "essay": 19,
+   "demo": 19
   },
   "unaligned": {
-   "chunk": 23,
-   "essay": 6,
-   "demo": 6
+   "chunk": 8,
+   "essay": 1,
+   "demo": 1
   },
   "similarity_min": 0.6289,
-  "similarity_median": 0.9489,
+  "similarity_median": 0.9082,
   "unaligned_list": [
    {
     "target": "chunk",
     "id": "136440-1",
     "reason": "best similarity 0.477 < 0.6"
-   },
-   {
-    "target": "chunk",
-    "id": "136842-0",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "136842-1",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "137559-0",
-    "reason": "crop would show 7 line(s) outside the snippet's matched window"
    },
    {
     "target": "chunk",
@@ -102,83 +87,13 @@
    },
    {
     "target": "chunk",
-    "id": "138720-0",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "138720-1",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "138720-2",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "138720-3",
-    "reason": "crop would show 17 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "138720-4",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "140211-2",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "141270-0",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
     "id": "141270-1",
     "reason": "best similarity 0.545 < 0.6"
    },
    {
     "target": "chunk",
-    "id": "142032-1",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
     "id": "144627-1",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "145512-1",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "145512-2",
     "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "153341-1",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "chunk",
-    "id": "153341-2",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "136842",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "137559",
-    "reason": "crop would show 5 line(s) outside the snippet's matched window"
    },
    {
     "target": "essay",
@@ -186,57 +101,17 @@
     "reason": "best similarity 0.578 < 0.6"
    },
    {
-    "target": "essay",
-    "id": "138852",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "141270",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "essay",
-    "id": "153341",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "136842",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "137559",
-    "reason": "crop would show 4 line(s) outside the snippet's matched window"
-   },
-   {
     "target": "demo",
     "id": "138720",
     "reason": "best similarity 0.578 < 0.6"
-   },
-   {
-    "target": "demo",
-    "id": "138852",
-    "reason": "crop would show 1 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "141270",
-    "reason": "crop would show 3 line(s) outside the snippet's matched window"
-   },
-   {
-    "target": "demo",
-    "id": "153341",
-    "reason": "crop would show 2 line(s) outside the snippet's matched window"
    }
   ]
  },
  "image_exposure": {
   "cap": 0.6,
-  "overall": 0.07436,
-  "max": 0.210623,
-  "mean": 0.103249,
+  "overall": 0.177664,
+  "max": 0.391331,
+  "mean": 0.165331,
   "per_letter": [
    {
     "post_id": 136440,
@@ -245,8 +120,8 @@
    },
    {
     "post_id": 136842,
-    "fraction": 0.0,
-    "crops": 0
+    "fraction": 0.236342,
+    "crops": 4
    },
    {
     "post_id": 136995,
@@ -260,8 +135,8 @@
    },
    {
     "post_id": 137559,
-    "fraction": 0.0,
-    "crops": 0
+    "fraction": 0.242194,
+    "crops": 3
    },
    {
     "post_id": 137829,
@@ -280,18 +155,18 @@
    },
    {
     "post_id": 138720,
-    "fraction": 0.0,
-    "crops": 0
+    "fraction": 0.279192,
+    "crops": 5
    },
    {
     "post_id": 138852,
-    "fraction": 0.12194,
-    "crops": 2
+    "fraction": 0.135291,
+    "crops": 4
    },
    {
     "post_id": 140211,
-    "fraction": 0.090868,
-    "crops": 4
+    "fraction": 0.116895,
+    "crops": 5
    },
    {
     "post_id": 140883,
@@ -300,8 +175,8 @@
    },
    {
     "post_id": 141270,
-    "fraction": 0.0,
-    "crops": 0
+    "fraction": 0.0972,
+    "crops": 3
    },
    {
     "post_id": 141309,
@@ -310,8 +185,8 @@
    },
    {
     "post_id": 142032,
-    "fraction": 0.096699,
-    "crops": 3
+    "fraction": 0.149145,
+    "crops": 4
    },
    {
     "post_id": 142503,
@@ -325,13 +200,13 @@
    },
    {
     "post_id": 145512,
-    "fraction": 0.07909,
-    "crops": 3
+    "fraction": 0.193287,
+    "crops": 5
    },
    {
     "post_id": 153341,
-    "fraction": 0.210623,
-    "crops": 1
+    "fraction": 0.391331,
+    "crops": 5
    },
    {
     "post_id": 156296,

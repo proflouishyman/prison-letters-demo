@@ -92,3 +92,13 @@ Solution
 crops._word_is_name also accepts a same-first-letter match at NAME_LOOSE_RATIO (70) for tokens of 5+ chars; the name span then extends over the adjacent capitalized word. Over-masking is the safe direction for names.
 Notes
 Regression test: scripts/test_crops_names.py. Fuzzy name matching on handwriting OCR stays a backstop; the manager's by-eye crop review before every push remains required.
+
+[2026-11-10] - Most "no matching scan region" notes were found snippets rejected by an over-strict rule
+Problem
+27 of 35 crop-less snippets had been located on the page but were dropped because a neighbouring line overlapped the crop.
+Root Cause
+crops.py dropped any crop showing a line outside the snippet's matched window, including lines that are simply the letter's own adjacent text (slanted handwriting, newspaper columns).
+Solution
+An outside line no longer blocks a crop when it is the letter's own archive text (in_archive); it still passes through the name/ID/address masks. Unexplained outside text still blocks. Aligned snippets 56 -> 81 of 91.
+Notes
+The remaining 10 are genuine OCR misses (Vision did not read those lines), reported as low similarity.
