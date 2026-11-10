@@ -5,14 +5,20 @@ Loud failure: every input row and output file is schema-checked; any violation p
 non-zero, and nothing is written (all outputs are staged in memory, validated, then written).
 """
 import argparse
+import copy
 import json
 import os
 import pathlib
+import re
 import sqlite3
+import statistics
 import subprocess
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import crops as cropmod  # noqa: E402
+from compare import norm_lower_nopunct  # noqa: E402
+from idpatterns import find_hits, redact  # noqa: E402
 from pl_common import ROOT, PipelineError, fail, git_version, now_utc  # noqa: E402
 
 try:
@@ -76,10 +82,14 @@ THEME_IN = {"post_id": (INT, True), "subjects": (LST, True), "affect": (LST, Tru
             "stance": (STR, True), "model": (STR, True), "prompt_sha256": (STR, True)}
 EMB_META_IN = {"model": (STR, True), "dim": (INT, True), "normalized": (BOOL, True), "n_rows": (INT, True)}
 # Exactly what scripts/compare.py writes (contract §4); state/year/ref_word_span are present but may be null.
-DEMO_MODEL = {"model": (STR, True), "cer": (FLT, True), "wer": (FLT, True),
-              "cer_lower_nopunct": (FLT, True), "wer_lower_nopunct": (FLT, True),
+# cer/wer (+ lower_nopunct variants) are null exactly when failed_pages > 0 (checked in validate_demo);
+# failed_pages/failures are optional (default 0 / []) so older files still validate.
+DEMO_MODEL = {"model": (STR, True), "cer": (FLT, "nullable"), "wer": (FLT, "nullable"),
+              "cer_lower_nopunct": (FLT, "nullable"), "wer_lower_nopunct": (FLT, "nullable"),
+              "failed_pages": (INT, False), "failures": (LST, False),
               "seconds_total": (FLT, True), "pages_compared": (LST, True), "partial": (BOOL, True),
-              "ref_word_span": (LST, "nullable"), "excerpt": (STR, True)}
+              "ref_word_span": (LST, "nullable"), "excerpt": (STR, True),
+              "excerpt_unaligned": (BOOL, False)}
 DEMO_LETTER = {"post_id": (INT, True), "url": (STR, True), "title": (STR, True), "state": (STR, "nullable"),
                "year": (INT, "nullable"), "pages": (INT, True), "handwriting": (STR, True),
                "archive_excerpt": (STR, True), "models": (LST, True)}
@@ -96,6 +106,14 @@ CHUNK_OUT = {"chunk_id": (STR, True), "post_id": (INT, True), "snippet": (STR, T
 ENT_OUT = {"post_id": (INT, True), "type": (STR, True), "text": (STR, True)}
 THEME_OUT = {"post_id": (INT, True), "subjects": (LST, True), "affect": (LST, True), "sentiment": (STR, True),
              "stance": (STR, True), "model": (STR, True)}
+CROP_OUT = {"target": (STR, True), "id": (STR, True), "post_id": (INT, True), "page": (INT, True),
+            "file": (STR, True), "box": (LST, True), "similarity": (FLT, True),
+            "masked": (LST, True)}
+CROP_ALIGN_OUT = {"threshold": (FLT, True), "aligned": (dict, True), "unaligned": (dict, True),
+                  "similarity_min": (FLT, True), "similarity_median": (FLT, True), "unaligned_list": (LST, True)}
+IMG_EXPOSURE_OUT = {"cap": (FLT, True), "overall": (FLT, True), "max": (FLT, True), "mean": (FLT, True),
+                    "per_letter": (LST, True)}
+CROP_FILE_RE = re.compile(r"^crops/[0-9]+_p[0-9]+_[0-9]+\.jpg$")
 VEC_META_OUT = {"fixture": (BOOL, True), "model": (STR, True), "dim": (INT, True), "n_rows": (INT, True),
                 "dtype": (STR, True), "normalized": (BOOL, True), "scales": (LST, True),
                 "max_reconstruction_error": (FLT, True), "row_order": (STR, True)}
@@ -263,10 +281,58 @@ def validate_demo(demo, public, essays, snippet_chars):
             raise PipelineError(f"{where}: archive_excerpt is {len(L['archive_excerpt'])} chars (max {DEMO_EXCERPT_MAX})")
         for m in L["models"]:
             check_row(m, DEMO_MODEL, f"{where} model", strict=True)
+            nfail = m.get("failed_pages", 0)
+            if len(m.get("failures", [])) != nfail:
+                raise PipelineError(f"{where} {m['model']}: failed_pages={nfail} but {len(m.get('failures', []))} failures listed")
+            for f in m.get("failures", []):
+                check_row(f, {"post_id": (INT, True), "page": (INT, True), "reason": (STR, True)},
+                          f"{where} {m['model']} failure", strict=True)
+            rates = [m[k] for k in ("cer", "wer", "cer_lower_nopunct", "wer_lower_nopunct")]
+            if (nfail > 0) != all(x is None for x in rates) or (nfail == 0 and any(x is None for x in rates)):
+                raise PipelineError(f"{where} {m['model']}: CER/WER must be null exactly when failed_pages > 0")
             if "cloud" in m["model"]:
                 raise PipelineError(f"{where}: ':cloud' model forbidden: {m['model']}")
+            if m.get("excerpt_unaligned", False) and (m["excerpt"] != "" or nfail > 0):
+                raise PipelineError(f"{where} {m['model']}: excerpt_unaligned requires an empty excerpt and failed_pages == 0")
             if public and len(m["excerpt"]) > DEMO_EXCERPT_MAX:
                 raise PipelineError(f"{where} {m['model']}: excerpt is {len(m['excerpt'])} chars (max {DEMO_EXCERPT_MAX})")
+
+
+def _public_text_fields(pub_essays, pub_chunks, pub_ents, demo):
+    """Every public text field as (description, container, key): the guard reads them, redact_public rewrites them."""
+    f = []
+    for e in pub_essays:
+        f += [(f"essays.json {e['post_id']}.title", e, "title")]
+        if e.get("excerpt"):
+            f.append((f"essays.json {e['post_id']}.excerpt", e, "excerpt"))
+    f += [(f"chunks.json {c['chunk_id']}.snippet", c, "snippet") for c in pub_chunks]
+    f += [(f"entities.json {n['post_id']} {n['type']}", n, "text") for n in pub_ents]
+    for L in demo["letters"]:
+        f += [(f"transcription_demo.json {L['post_id']}.title", L, "title"),
+              (f"transcription_demo.json {L['post_id']}.archive_excerpt", L, "archive_excerpt")]
+        f += [(f"transcription_demo.json {L['post_id']} {m['model']}.excerpt", m, "excerpt") for m in L["models"]]
+    return f
+
+
+def redact_public(pub_essays, pub_chunks, pub_ents, demo):
+    """Black out (in place) every identifier/address span in our public text with idpatterns.REDACTION, including spans
+    the archive's own text contains (Louis, 2026-11-10). Titles and entity texts are scanned by the guard, not rewritten.
+    Returns the number of redacted spans (build_info.counts.text_redactions)."""
+    n = 0
+    for _, box, key in _public_text_fields(pub_essays, pub_chunks, [], demo):
+        if key != "title":
+            box[key], k = redact(box[key])
+            n += k
+    return n
+
+
+def guard_id_patterns(pub_essays, pub_chunks, pub_ents, demo):
+    """Public-text guard (contract §6), run on the already-redacted text: ANY identifier/address pattern hit
+    (idpatterns.ID_PATTERNS) in a public text field FAILS the build, naming the field and the match."""
+    bad = [(w, h) for w, box, key in _public_text_fields(pub_essays, pub_chunks, pub_ents, demo) for h in find_hits(box[key])]
+    if bad:
+        raise PipelineError("public text contains identifier/address patterns after redaction:\n  "
+                            + "\n  ".join(f"{w}: {h!r}" for w, h in bad))
 
 
 def quantize(mat):
@@ -316,6 +382,49 @@ def validate_public_themes(rows):
             raise PipelineError(f"public themes {r['post_id']}: bad enumeration value")
 
 
+def validate_public_crops(rows, chunk_ids, essay_ids, threshold):
+    """Output check (§6 crops.json): strict schema, known targets/ids, one row per (target, id), a sane box,
+    a file name of the documented form, and similarity >= the alignment threshold (never a best guess)."""
+    seen = set()
+    for r in rows:
+        where = f"public crop {r.get('target')}:{r.get('id')}"
+        check_row(r, CROP_OUT, where, strict=True)
+        if r["target"] not in cropmod.TARGETS:
+            raise PipelineError(f"{where}: unknown target {r['target']!r}")
+        ok_ids = chunk_ids if r["target"] == "chunk" else {str(i) for i in essay_ids}
+        if r["id"] not in ok_ids:
+            raise PipelineError(f"{where}: id is not a known {'chunk_id' if r['target'] == 'chunk' else 'post_id'}")
+        if (r["target"], r["id"]) in seen:
+            raise PipelineError(f"{where}: duplicate crop for the same snippet")
+        seen.add((r["target"], r["id"]))
+        if r["post_id"] not in essay_ids or r["page"] < 1:
+            raise PipelineError(f"{where}: bad post_id/page")
+        b = r["box"]
+        if len(b) != 4 or not all(isinstance(v, int) and not isinstance(v, bool) for v in b) \
+                or not (0 <= b[0] < b[2] and 0 <= b[1] < b[3]):
+            raise PipelineError(f"{where}: box must be [x0,y0,x1,y1] integers with x0<x1, y0<y1, got {b}")
+        for mb in r["masked"]:
+            if len(mb) != 4 or not all(isinstance(v, int) and not isinstance(v, bool) for v in mb) \
+                    or not (0 <= mb[0] < mb[2] and 0 <= mb[1] < mb[3]):
+                raise PipelineError(f"{where}: masked box must be [x0,y0,x1,y1] integers, got {mb}")
+        if not CROP_FILE_RE.match(r["file"]):
+            raise PipelineError(f"{where}: file {r['file']!r} is not of the form crops/<post_id>_p<page>_<n>.jpg")
+        if not (threshold <= r["similarity"] <= 1):
+            raise PipelineError(f"{where}: similarity {r['similarity']} is outside [{threshold}, 1]")
+
+
+def validate_crop_files(rows, data_dir):
+    """Every crop's `file` must exist under data_dir and be a JPEG no wider than 900 px."""
+    from PIL import Image
+    for r in rows:
+        f = pathlib.Path(data_dir) / r["file"]
+        if not f.is_file():
+            raise PipelineError(f"public crop {r['target']}:{r['id']}: file missing: {f}")
+        with Image.open(f) as im:
+            if im.format != "JPEG" or im.width > cropmod.MAX_CROP_WIDTH:
+                raise PipelineError(f"{f}: must be a JPEG <= {cropmod.MAX_CROP_WIDTH}px wide, is {im.format} {im.width}px")
+
+
 def exposure(essays, chunks, public_chunks, public_essays, demo):
     """Share of transcript characters published: union of snippet, excerpt and demo-excerpt intervals
     (all start at known offsets, so overlaps are not double counted). Returns (fraction, chars, total)."""
@@ -348,7 +457,8 @@ def wrap(key, items, fixture, **extra):
     return {"fixture": fixture, "generated_at": now_utc(), key: items, **extra}
 
 
-def build(root, snippet_chars, max_exposure, local, allow_fixture):
+def build(root, snippet_chars, max_exposure, local, allow_fixture, max_image_exposure=0.20,
+          sim_threshold=cropmod.SIM_THRESHOLD):
     """Run the whole build; returns the build_info dict. Raises PipelineError on any violation."""
     root = pathlib.Path(root)
     essays, fix_db = load_essays(root)
@@ -405,11 +515,56 @@ def build(root, snippet_chars, max_exposure, local, allow_fixture):
     validate_public_themes(pub_themes)
     check_row(vec_meta, VEC_META_OUT, "vectors.meta", strict=True)
     frac, chars, total = exposure(essays, chunks, pub_chunks, pub_essays, demo_pub)
+    by_chunk = {c["chunk_id"]: c for c in chunks}
 
     print(f"Entities: dropped {n_unverified} unverified row(s); dropped {n_person} person row(s); "
           f"{len(pub_ents)} public.")
     print(f"Max int8 reconstruction error: {err:.6g} (rows={len(chunks)}, dim={EMB_DIM})")
     print(f"Exposure: {chars}/{total} transcript chars published = {frac * 100:.2f}% (cap {max_exposure * 100:.2f}%)")
+    # Crops: align every public snippet to the page scans (staged in memory; files are written below).
+    snippets = [{"target": "chunk", "id": p["chunk_id"], "post_id": p["post_id"], "text": p["snippet"],
+                 "start": by_chunk[p["chunk_id"]]["start"]} for p in pub_chunks]
+    snippets += [{"target": "essay", "id": str(p["post_id"]), "post_id": p["post_id"], "text": p["excerpt"], "start": 0}
+                 for p in pub_essays if p.get("excerpt")]
+    snippets += [{"target": "demo", "id": str(L["post_id"]), "post_id": L["post_id"], "text": L["archive_excerpt"],
+                  "start": 0} for L in demo_pub["letters"] if L["archive_excerpt"]]
+    page_boxes = cropmod.load_page_boxes(root / "enrich" / "page_boxes.jsonl")
+    extra = set(page_boxes) - set(essays)
+    if extra:
+        raise PipelineError(f"page_boxes: post_ids not in the database: {sorted(extra)}")
+    # Person masking: verified person entities plus the letter's author field; deities/religious names are skipped.
+    archives = {pid: norm_lower_nopunct(e["transcript"] or "") for pid, e in essays.items()}
+    skipped_rel = []
+    names = {}
+    for pid, e in essays.items():
+        names[pid] = cropmod.name_tokens([x["text"] for x in verified if x["post_id"] == pid and x["type"] == "person"]
+                                         + ([e["author"]] if e.get("author") else []), skipped_rel)
+    cres = cropmod.compute_crops(snippets, page_boxes, essays, root / "data" / "pages", sim_threshold,
+                                 max_image_exposure, names, archives)
+    # Text redaction (after exposure and crop alignment, which use the unredacted text), then the guard on the result.
+    red_essays, red_chunks, red_demo = (copy.deepcopy(x) for x in (pub_essays, pub_chunks, demo_pub))
+    n_red = redact_public(red_essays, red_chunks, pub_ents, red_demo)
+    guard_id_patterns(red_essays, red_chunks, pub_ents, red_demo)
+    pub_crops = cres["crops"]
+    validate_public_crops(pub_crops, {c["chunk_id"] for c in chunks}, set(essays), sim_threshold)
+    ie = cres["exposure"]
+    ms = cres["mask_stats"]
+    print(f"Crop masking: {ms['person']} person, {ms['id_pattern']} id_pattern, {ms['header_block']} header_block mask(s) "
+          f"in {ms['files_with_masks']} of {len(cres['images'])} image file(s); {ms['dropped_outside_lines']} crop(s) "
+          f"dropped for showing lines outside the matched window.")
+    print(f"Text redaction: {n_red} identifier/address span(s) replaced by the redaction mark in public text; guard: 0 hits left.")
+    print(f"Person masking: {len(skipped_rel)} religious/deity entity text(s) NOT masked (stoplist): "
+          f"{sorted(set(skipped_rel))}")
+    by_t = lambda rows: {t: sum(1 for r in rows if r["target"] == t) for t in cropmod.TARGETS}  # noqa: E731
+    sims = [c["similarity"] for c in pub_crops] or [0.0]  # 0.0 only when nothing aligned (all counted unaligned)
+    print(f"Crops: {len(pub_crops)} aligned {by_t(pub_crops)}, {len(cres['unaligned'])} UNALIGNED (no crop) "
+          f"{by_t(cres['unaligned'])} at similarity threshold {sim_threshold}; {len(cres['images'])} image file(s), "
+          f"{sum(len(b) for b in cres['images'].values())} bytes.")
+    for u in cres["unaligned"]:
+        print(f"  UNALIGNED {u['target']} {u['id']}: {u['reason']}")
+    print(f"Image exposure: overall {ie['overall'] * 100:.2f}%, per letter max {ie['max'] * 100:.2f}% / "
+          f"mean {ie['mean'] * 100:.2f}% (cap {max_image_exposure * 100:.2f}%).")
+
     missing_themes = len(essays) - len(themes)
     if missing_themes:
         print(f"GAP: {missing_themes} essay(s) have no themes row.")
@@ -422,26 +577,53 @@ def build(root, snippet_chars, max_exposure, local, allow_fixture):
     info = {"fixture": fixture, "generated_at": now_utc(), "git_sha": git_version(), "models": models,
             "counts": {"essays": len(essays), "chunks": len(chunks), "entities_public": len(pub_ents),
                        "entities_unverified_dropped": n_unverified, "entities_person_dropped": n_person,
-                       "themes": len(themes), "demo_letters": len(demo_pub["letters"])},
+                       "themes": len(themes), "demo_letters": len(demo_pub["letters"]),
+                       "crops": len(pub_crops), "crops_unaligned": len(cres["unaligned"]),
+                       "text_redactions": n_red},
             "snippet_chars": snippet_chars, "max_exposure": max_exposure,
             "exposure": {"fraction": round(frac, 6), "percent": round(frac * 100, 3),
-                         "chars_published": chars, "chars_total": total}}
+                         "chars_published": chars, "chars_total": total},
+            "crop_alignment": {"threshold": sim_threshold, "aligned": by_t(pub_crops),
+                               "unaligned": by_t(cres["unaligned"]),
+                               "similarity_min": round(min(sims), 4), "similarity_median": round(statistics.median(sims), 4),
+                               "unaligned_list": cres["unaligned"]},
+            "image_exposure": {"cap": ie["cap"], "overall": ie["overall"], "max": ie["max"], "mean": ie["mean"],
+                               "per_letter": ie["per_letter"]}}
+    check_row(info["crop_alignment"], CROP_ALIGN_OUT, "build_info.crop_alignment", strict=True)
+    check_row(info["image_exposure"], IMG_EXPOSURE_OUT, "build_info.image_exposure", strict=True)
+    for u in info["crop_alignment"]["unaligned_list"]:
+        check_row(u, {"target": (STR, True), "id": (STR, True), "reason": (STR, True)}, "unaligned_list row", strict=True)
+    for x in ie["per_letter"]:
+        check_row(x, {"post_id": (INT, True), "fraction": (FLT, True), "crops": (INT, True)}, "per_letter row", strict=True)
 
     out = root / "site" / "data"
-    files = {"essays.json": wrap("essays", pub_essays, fixture), "chunks.json": wrap("chunks", pub_chunks, fixture),
+    files = {"essays.json": wrap("essays", red_essays, fixture), "chunks.json": wrap("chunks", red_chunks, fixture),
              "entities.json": wrap("entities", pub_ents, fixture), "themes.json": wrap("themes", pub_themes, fixture),
              "vectors.meta.json": vec_meta, "build_info.json": info}
     out.mkdir(parents=True, exist_ok=True)
     for name, doc in files.items():
         (out / name).write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
     (out / "vectors.i8").write_bytes(q.tobytes())
-    (out / "transcription_demo.json").write_text(json.dumps(demo_pub, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "crops.json").write_text(json.dumps(wrap("crops", pub_crops, fixture), ensure_ascii=False, indent=1),
+                                    encoding="utf-8")
+    (out / "crops").mkdir(exist_ok=True)
+    for stale in (out / "crops").glob("*.jpg"):  # the build owns this folder; never leave unlisted scan crops public
+        if f"crops/{stale.name}" not in cres["images"]:
+            stale.unlink()
+    for name, data in cres["images"].items():
+        (out / name).write_bytes(data)
+    (out / "transcription_demo.json").write_text(json.dumps(red_demo, ensure_ascii=False, indent=1), encoding="utf-8")
 
     # Read back from disk and re-validate what was actually written (including the person-leak scan).
     for name in files:
         json.loads((out / name).read_text(encoding="utf-8"))
     validate_public_entities(json.loads((out / "entities.json").read_text(encoding="utf-8"))["entities"])
     validate_public_chunks(json.loads((out / "chunks.json").read_text(encoding="utf-8"))["chunks"], snippet_chars)
+    written = json.loads((out / "crops.json").read_text(encoding="utf-8"))["crops"]
+    validate_public_crops(written, {c["chunk_id"] for c in chunks}, set(essays), sim_threshold)
+    validate_crop_files(written, out)
+    if {f.name for f in (out / "crops").glob("*")} != {n.split("/", 1)[1] for n in cres["images"]}:
+        raise PipelineError("site/data/crops contains files that are not referenced by crops.json")
     if (out / "vectors.i8").stat().st_size != len(chunks) * EMB_DIM:
         raise PipelineError("vectors.i8: written size does not equal n_rows*dim")
 
@@ -474,9 +656,14 @@ def main(argv=None):
     ap.add_argument("--allow-fixture", action="store_true", help="permit FAKE fixture inputs (tests/demos only)")
     ap.add_argument("--snippet-chars", type=int, default=int(os.environ.get("SNIPPET_CHARS", 160)))
     ap.add_argument("--max-exposure", type=float, default=float(os.environ.get("MAX_EXPOSURE", 0.15)))
+    ap.add_argument("--max-image-exposure", type=float, default=float(os.environ.get("MAX_IMAGE_EXPOSURE", 0.20)),
+                    help="cap on the share of a letter's page area published as crops (contract §6)")
+    ap.add_argument("--sim-threshold", type=float, default=cropmod.SIM_THRESHOLD,
+                    help="minimum snippet-to-scan similarity for a crop (contract §6)")
     a = ap.parse_args(argv)
     try:
-        info = build(a.root, a.snippet_chars, a.max_exposure, a.local, a.allow_fixture)
+        info = build(a.root, a.snippet_chars, a.max_exposure, a.local, a.allow_fixture, a.max_image_exposure,
+                     a.sim_threshold)
     except PipelineError as e:
         fail(str(e))
     print(f"OK: built public site data ({info['counts']['essays']} essays, {info['counts']['chunks']} chunks, "

@@ -10,6 +10,8 @@ export const SENTIMENTS = ["negative", "mixed", "neutral", "positive"];
 export const STANCES = ["describing", "arguing", "testifying", "reflecting", "creative"];
 export const HANDWRITING = ["handwritten", "typed", "mixed"];
 export const PUBLIC_EXCERPT_MAX = 300;
+export const CROP_TARGETS = ["chunk", "essay", "demo"];
+export const CROP_MAX_WIDTH = 900;
 
 /** Thrown for any missing/malformed data; carries the file and field for the red error panel. */
 export class DataError extends Error {
@@ -80,6 +82,25 @@ export const SCHEMAS = {
     });
     return d;
   },
+  // Crops of the original page scans (contract section 6). No crop row for a snippet = "no matching scan region".
+  "crops.json": (d, mode) => {
+    const f = "crops.json";
+    envelope(f, d, mode, "crops", 0).forEach((c, i) => {
+      const p = `crops[${i}]`; V.keys(f, p, c, ["target", "id", "post_id", "page", "file", "box", "similarity", "masked"]);
+      V.oneOf(f, p + ".target", c.target, CROP_TARGETS); V.str(f, p + ".id", c.id);
+      V.int(f, p + ".post_id", c.post_id); V.int(f, p + ".page", c.page); if (c.page < 1) throw new DataError(f, p + ".page", "must be >= 1");
+      V.str(f, p + ".file", c.file);
+      if (!/^crops\/[0-9]+_p[0-9]+_[0-9]+\.jpg$/.test(c.file)) throw new DataError(f, p + ".file", "must look like crops/<post_id>_p<page>_<n>.jpg");
+      V.intArr(f, p + ".box", c.box);
+      if (c.box.length !== 4 || c.box.some((v) => v < 0) || !(c.box[0] < c.box[2]) || !(c.box[1] < c.box[3])) throw new DataError(f, p + ".box", "expected [x0,y0,x1,y1] with x0<x1 and y0<y1");
+      V.arr(f, p + ".masked", c.masked).forEach((mb, k) => {
+        V.intArr(f, `${p}.masked[${k}]`, mb);
+        if (mb.length !== 4 || mb.some((v) => v < 0) || !(mb[0] < mb[2]) || !(mb[1] < mb[3])) throw new DataError(f, `${p}.masked[${k}]`, "expected [x0,y0,x1,y1] with x0<x1 and y0<y1");
+      });
+      V.num(f, p + ".similarity", c.similarity); if (c.similarity < 0 || c.similarity > 1) throw new DataError(f, p + ".similarity", "must be within 0..1");
+    });
+    return d;
+  },
   "vectors.meta.json": (d, mode) => {
     const f = "vectors.meta.json";
     V.keys(f, "", d, ["fixture", "model", "dim", "n_rows", "dtype", "normalized", "scales", "max_reconstruction_error", "row_order"]);
@@ -132,12 +153,25 @@ export const SCHEMAS = {
         throw new DataError(f, p + ".archive_excerpt", `${l.archive_excerpt.length} chars exceeds the public limit of ${PUBLIC_EXCERPT_MAX}`);
       V.arr(f, p + ".models", l.models, 1).forEach((m, j) => {
         const q = `${p}.models[${j}]`;
-        V.keys(f, q, m, ["model", "cer", "wer", "cer_lower_nopunct", "wer_lower_nopunct", "seconds_total", "pages_compared", "partial", "ref_word_span", "excerpt"]);
+        V.keys(f, q, m, ["model", "cer", "wer", "cer_lower_nopunct", "wer_lower_nopunct", "seconds_total", "pages_compared", "partial", "ref_word_span", "excerpt"], ["failed_pages", "failures", "excerpt_unaligned"]);
         V.str(f, q + ".model", m.model);
-        for (const k of ["cer", "wer", "cer_lower_nopunct", "wer_lower_nopunct", "seconds_total"]) V.num(f, `${q}.${k}`, m[k]);
+        const nfail = "failed_pages" in m ? V.int(f, q + ".failed_pages", m.failed_pages) : 0;
+        const fl = "failures" in m ? V.arr(f, q + ".failures", m.failures) : [];
+        if (fl.length !== nfail) throw new DataError(f, q + ".failures", `failed_pages=${nfail} but ${fl.length} failures listed`);
+        fl.forEach((x, k) => { V.keys(f, `${q}.failures[${k}]`, x, ["post_id", "page", "reason"]); V.int(f, `${q}.failures[${k}].page`, x.page); V.int(f, `${q}.failures[${k}].post_id`, x.post_id); V.str(f, `${q}.failures[${k}].reason`, x.reason); });
+        // CER/WER are null exactly when the model failed on a page of this letter.
+        for (const k of ["cer", "wer", "cer_lower_nopunct", "wer_lower_nopunct"]) {
+          if (nfail > 0) { if (m[k] !== null) throw new DataError(f, `${q}.${k}`, "must be null when failed_pages > 0"); }
+          else V.num(f, `${q}.${k}`, m[k]);
+        }
+        V.num(f, `${q}.seconds_total`, m.seconds_total);
         V.intArr(f, q + ".pages_compared", m.pages_compared); V.bool(f, q + ".partial", m.partial);
         if (m.ref_word_span !== null) { V.intArr(f, q + ".ref_word_span", m.ref_word_span); if (m.ref_word_span.length !== 2) throw new DataError(f, q + ".ref_word_span", "expected [start, end] or null"); }
         V.str(f, q + ".excerpt", m.excerpt);
+        if ("excerpt_unaligned" in m) {
+          V.bool(f, q + ".excerpt_unaligned", m.excerpt_unaligned);
+          if (m.excerpt_unaligned && (m.excerpt !== "" || nfail > 0)) throw new DataError(f, q + ".excerpt_unaligned", "true requires an empty excerpt and failed_pages == 0");
+        }
         if (mode !== "local" && m.excerpt.length > PUBLIC_EXCERPT_MAX)
           throw new DataError(f, q + ".excerpt", `${m.excerpt.length} chars exceeds the public limit of ${PUBLIC_EXCERPT_MAX}`);
       });
@@ -146,17 +180,28 @@ export const SCHEMAS = {
   },
   "build_info.json": (d, mode) => {
     const f = "build_info.json";
-    V.keys(f, "", d, ["fixture", "generated_at", "git_sha", "models", "counts", "snippet_chars", "max_exposure", "exposure"]);
+    V.keys(f, "", d, ["fixture", "generated_at", "git_sha", "models", "counts", "snippet_chars", "max_exposure", "exposure", "crop_alignment", "image_exposure"]);
     V.bool(f, "fixture", d.fixture); checkFixtureFlag(f, d, mode);
     V.str(f, "generated_at", d.generated_at); V.str(f, "git_sha", d.git_sha);
     V.keys(f, "models", d.models, ["embedding", "entities", "themes", "transcription"]);
     for (const k of Object.keys(d.models)) V.strArr(f, "models." + k, d.models[k]);
-    V.keys(f, "counts", d.counts, ["essays", "chunks", "entities_public", "entities_unverified_dropped", "entities_person_dropped", "themes", "demo_letters"]);
+    V.keys(f, "counts", d.counts, ["essays", "chunks", "entities_public", "entities_unverified_dropped", "entities_person_dropped", "themes", "demo_letters", "crops", "crops_unaligned", "text_redactions"]);
     for (const k of Object.keys(d.counts)) V.int(f, "counts." + k, d.counts[k]);
     V.int(f, "snippet_chars", d.snippet_chars); V.num(f, "max_exposure", d.max_exposure);
     V.keys(f, "exposure", d.exposure, ["fraction", "percent", "chars_published", "chars_total"]);
     V.num(f, "exposure.fraction", d.exposure.fraction); V.num(f, "exposure.percent", d.exposure.percent);
     V.int(f, "exposure.chars_published", d.exposure.chars_published); V.int(f, "exposure.chars_total", d.exposure.chars_total);
+    const ca = d.crop_alignment;
+    V.keys(f, "crop_alignment", ca, ["threshold", "aligned", "unaligned", "similarity_min", "similarity_median", "unaligned_list"]);
+    V.num(f, "crop_alignment.threshold", ca.threshold); V.num(f, "crop_alignment.similarity_min", ca.similarity_min); V.num(f, "crop_alignment.similarity_median", ca.similarity_median);
+    for (const k of ["aligned", "unaligned"]) { V.keys(f, "crop_alignment." + k, ca[k], CROP_TARGETS); for (const t of CROP_TARGETS) V.int(f, `crop_alignment.${k}.${t}`, ca[k][t]); }
+    V.arr(f, "crop_alignment.unaligned_list", ca.unaligned_list).forEach((u, i) => {
+      const p = `crop_alignment.unaligned_list[${i}]`; V.keys(f, p, u, ["target", "id", "reason"]); V.oneOf(f, p + ".target", u.target, CROP_TARGETS); V.str(f, p + ".id", u.id); V.str(f, p + ".reason", u.reason); });
+    const ie = d.image_exposure;
+    V.keys(f, "image_exposure", ie, ["cap", "overall", "max", "mean", "per_letter"]);
+    for (const k of ["cap", "overall", "max", "mean"]) V.num(f, "image_exposure." + k, ie[k]);
+    V.arr(f, "image_exposure.per_letter", ie.per_letter).forEach((x, i) => {
+      const p = `image_exposure.per_letter[${i}]`; V.keys(f, p, x, ["post_id", "fraction", "crops"]); V.int(f, p + ".post_id", x.post_id); V.num(f, p + ".fraction", x.fraction); V.int(f, p + ".crops", x.crops); });
     return d;
   },
 };
@@ -173,13 +218,26 @@ export function checkVectors(file, buf, meta) {
  */
 export function crossCheck(docs) {
   const E = docs["essays.json"].essays, C = docs["chunks.json"].chunks, N = docs["entities.json"].entities;
+  const K = docs["crops.json"].crops;
   const T = docs["themes.json"].themes, M = docs["vectors.meta.json"], B = docs["build_info.json"], D = docs["transcription_demo.json"];
   const ids = new Set(E.map((e) => e.post_id));
   if (ids.size !== E.length) throw new DataError("essays.json", "post_id", "duplicate post_id");
   const unknown = (file, list) => { const bad = list.find((x) => !ids.has(x.post_id)); if (bad) throw new DataError(file, "post_id", `${bad.post_id} is not in essays.json`); };
   unknown("chunks.json", C); unknown("entities.json", N); unknown("themes.json", T); unknown("transcription_demo.json", D.letters);
   if (C.length !== M.n_rows) throw new DataError("vectors.meta.json", "n_rows", `${M.n_rows} != chunks.json length ${C.length}`);
-  const want = { essays: E.length, chunks: C.length, entities_public: N.length, themes: T.length, demo_letters: D.letters.length };
+  unknown("crops.json", K);
+  const chunkIds = new Set(C.map((c) => c.chunk_id)), seenCrop = new Set();
+  K.forEach((k, i) => {
+    const w = `crops[${i}]`;
+    if (k.target === "chunk" ? !chunkIds.has(k.id) : k.id !== String(k.post_id) || !ids.has(k.post_id)) throw new DataError("crops.json", w + ".id", `${k.target} ${k.id} does not exist`);
+    if (k.target === "chunk" && C.find((c) => c.chunk_id === k.id).post_id !== k.post_id) throw new DataError("crops.json", w + ".post_id", "differs from the chunk's post_id");
+    const key = k.target + ":" + k.id; if (seenCrop.has(key)) throw new DataError("crops.json", w, "duplicate crop for the same snippet"); seenCrop.add(key);
+    if (k.similarity < B.crop_alignment.threshold) throw new DataError("crops.json", w + ".similarity", `${k.similarity} is below the alignment threshold ${B.crop_alignment.threshold}`);
+  });
+  if (B.image_exposure.max > B.image_exposure.cap) throw new DataError("build_info.json", "image_exposure.max", "exceeds image_exposure.cap");
+  const wantA = Object.values(B.crop_alignment.aligned).reduce((a, b) => a + b, 0), wantU = Object.values(B.crop_alignment.unaligned).reduce((a, b) => a + b, 0);
+  if (wantA !== K.length || wantU !== B.counts.crops_unaligned || B.crop_alignment.unaligned_list.length !== wantU) throw new DataError("build_info.json", "crop_alignment", "aligned/unaligned counts disagree with crops.json or counts.crops_unaligned");
+  const want = { crops: K.length, essays: E.length, chunks: C.length, entities_public: N.length, themes: T.length, demo_letters: D.letters.length };
   for (const [k, v] of Object.entries(want)) if (B.counts[k] !== v) throw new DataError("build_info.json", `counts.${k}`, `${B.counts[k]} != actual ${v}`);
   C.forEach((c, i) => { if (c.snippet.length > B.snippet_chars) throw new DataError("chunks.json", `chunks[${i}].snippet`, `${c.snippet.length} chars exceeds snippet_chars ${B.snippet_chars}`); });
   E.forEach((e, i) => { if (e.excerpt !== null && e.excerpt.length > 2 * B.snippet_chars) throw new DataError("essays.json", `essays[${i}].excerpt`, `${e.excerpt.length} chars exceeds 2*snippet_chars`); });

@@ -1,0 +1,51 @@
+{
+ "fixture": true,
+ "generated_at": "2026-11-09T00:00:00Z",
+ "crops": [
+  {
+   "target": "chunk",
+   "id": "900001-0",
+   "post_id": 900001,
+   "page": 1,
+   "file": "crops/900001_p1_0.jpg",
+   "box": [
+    0,
+    100,
+    1700,
+    280
+   ],
+   "similarity": 0.97,
+   "masked": []
+  },
+  {
+   "target": "essay",
+   "id": "900001",
+   "post_id": 900001,
+   "page": 1,
+   "file": "crops/900001_p1_0.jpg",
+   "box": [
+    0,
+    100,
+    1700,
+    280
+   ],
+   "similarity": 0.93,
+   "masked": []
+  },
+  {
+   "target": "demo",
+   "id": "900001",
+   "post_id": 900001,
+   "page": 1,
+   "file": "crops/900001_p1_0.jpg",
+   "box": [
+    0,
+    100,
+    1700,
+    280
+   ],
+   "similarity": 0.91,
+   "masked": []
+  }
+ ]
+}

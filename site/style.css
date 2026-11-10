@@ -38,3 +38,7 @@ mark.ins{background:var(--ins);color:inherit}mark.del{background:var(--del);colo
 .chip{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:.05rem .6rem;margin:.15rem .2rem .15rem 0;font-size:.85rem}
 .radio label{margin-right:1rem;display:inline-block}
 footer{border-top:1px solid var(--line);margin-top:2.5rem;padding:1rem 0 3rem;font-size:.9rem;color:var(--muted)}
+
+.scan { margin: .5rem 0; }
+.scan img { display: block; width: 100%; max-width: 900px; height: auto; border: 1px solid #bbb; border-radius: 3px; }
+.scan.noscan { font-size: .85rem; font-style: italic; }

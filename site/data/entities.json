@@ -1,0 +1,501 @@
+{
+ "fixture": false,
+ "generated_at": "2026-11-10T15:00:36Z",
+ "entities": [
+  {
+   "post_id": 136440,
+   "type": "place",
+   "text": "South.Afrikan Proverb"
+  },
+  {
+   "post_id": 136440,
+   "type": "organization",
+   "text": "the State"
+  },
+  {
+   "post_id": 136440,
+   "type": "law_policy",
+   "text": "death penalty"
+  },
+  {
+   "post_id": 136440,
+   "type": "law_policy",
+   "text": "double jeopardy"
+  },
+  {
+   "post_id": 136440,
+   "type": "law_policy",
+   "text": "Indiana Code Section 35-3.1-1-5(e)(Burns l979)(Repea1ed in 1982)"
+  },
+  {
+   "post_id": 136440,
+   "type": "place",
+   "text": "Azania"
+  },
+  {
+   "post_id": 136440,
+   "type": "place",
+   "text": "South Afrika"
+  },
+  {
+   "post_id": 136440,
+   "type": "organization",
+   "text": "Indiana Supreme Court"
+  },
+  {
+   "post_id": 136440,
+   "type": "place",
+   "text": "Indiana"
+  },
+  {
+   "post_id": 136842,
+   "type": "place",
+   "text": "Nevada"
+  },
+  {
+   "post_id": 136842,
+   "type": "place",
+   "text": "US"
+  },
+  {
+   "post_id": 136995,
+   "type": "place",
+   "text": "Missouri"
+  },
+  {
+   "post_id": 136995,
+   "type": "law_policy",
+   "text": "death penalty"
+  },
+  {
+   "post_id": 136995,
+   "type": "organization",
+   "text": "Missouri Supreme Court"
+  },
+  {
+   "post_id": 136995,
+   "type": "organization",
+   "text": "Missouri Senate"
+  },
+  {
+   "post_id": 136995,
+   "type": "organization",
+   "text": "MO Dept. of Mental Health"
+  },
+  {
+   "post_id": 136995,
+   "type": "law_policy",
+   "text": "PREA law"
+  },
+  {
+   "post_id": 136995,
+   "type": "facility",
+   "text": "Hedrick Hospital"
+  },
+  {
+   "post_id": 136995,
+   "type": "facility",
+   "text": "ccc prison"
+  },
+  {
+   "post_id": 136995,
+   "type": "law_policy",
+   "text": "Life without Parole"
+  },
+  {
+   "post_id": 137424,
+   "type": "place",
+   "text": "New York"
+  },
+  {
+   "post_id": 137424,
+   "type": "law_policy",
+   "text": "Medicaid"
+  },
+  {
+   "post_id": 137424,
+   "type": "place",
+   "text": "North Carolina"
+  },
+  {
+   "post_id": 137559,
+   "type": "place",
+   "text": "CA"
+  },
+  {
+   "post_id": 137559,
+   "type": "law_policy",
+   "text": "death penalty"
+  },
+  {
+   "post_id": 137559,
+   "type": "organization",
+   "text": "California Commission on the Fair Administration of Justice"
+  },
+  {
+   "post_id": 137559,
+   "type": "law_policy",
+   "text": "California's death penalty law"
+  },
+  {
+   "post_id": 137559,
+   "type": "law_policy",
+   "text": "capital punishment"
+  },
+  {
+   "post_id": 137559,
+   "type": "place",
+   "text": "New Jersey"
+  },
+  {
+   "post_id": 137829,
+   "type": "place",
+   "text": "Lancaster, CA"
+  },
+  {
+   "post_id": 137829,
+   "type": "place",
+   "text": "California"
+  },
+  {
+   "post_id": 137829,
+   "type": "organization",
+   "text": "Hoover Commission"
+  },
+  {
+   "post_id": 137829,
+   "type": "organization",
+   "text": "California Correctional Peace Officers Association"
+  },
+  {
+   "post_id": 137829,
+   "type": "organization",
+   "text": "CDCR"
+  },
+  {
+   "post_id": 137829,
+   "type": "place",
+   "text": "New York"
+  },
+  {
+   "post_id": 137829,
+   "type": "place",
+   "text": "Texas"
+  },
+  {
+   "post_id": 137829,
+   "type": "place",
+   "text": "Georgia"
+  },
+  {
+   "post_id": 138462,
+   "type": "law_policy",
+   "text": "bad laws"
+  },
+  {
+   "post_id": 138462,
+   "type": "place",
+   "text": "Indiana"
+  },
+  {
+   "post_id": 138462,
+   "type": "program",
+   "text": "Somm/Insomm scheme scam sex program"
+  },
+  {
+   "post_id": 138462,
+   "type": "organization",
+   "text": "prison industrial complex"
+  },
+  {
+   "post_id": 138495,
+   "type": "organization",
+   "text": "Michigan Department of Corrections"
+  },
+  {
+   "post_id": 138495,
+   "type": "place",
+   "text": "Michigan"
+  },
+  {
+   "post_id": 138495,
+   "type": "place",
+   "text": "Lapeer"
+  },
+  {
+   "post_id": 138495,
+   "type": "facility",
+   "text": "Thumb Correctional Facility"
+  },
+  {
+   "post_id": 138495,
+   "type": "law_policy",
+   "text": "Policy"
+  },
+  {
+   "post_id": 138495,
+   "type": "place",
+   "text": "Lansing"
+  },
+  {
+   "post_id": 138495,
+   "type": "organization",
+   "text": "M.D.O.C."
+  },
+  {
+   "post_id": 138495,
+   "type": "law_policy",
+   "text": "Package/Mail Rejection Form"
+  },
+  {
+   "post_id": 138495,
+   "type": "law_policy",
+   "text": "Notice of Intent to Conduct a Hearing"
+  },
+  {
+   "post_id": 138495,
+   "type": "place",
+   "text": "Flint, Michigan"
+  },
+  {
+   "post_id": 138495,
+   "type": "facility",
+   "text": "URF"
+  },
+  {
+   "post_id": 138720,
+   "type": "cultural_work",
+   "text": "Shawangunk Journal"
+  },
+  {
+   "post_id": 138720,
+   "type": "place",
+   "text": "Lake Katrine"
+  },
+  {
+   "post_id": 138720,
+   "type": "facility",
+   "text": "Shawangunk"
+  },
+  {
+   "post_id": 138720,
+   "type": "facility",
+   "text": "Eastern"
+  },
+  {
+   "post_id": 138720,
+   "type": "facility",
+   "text": "Woodboume"
+  },
+  {
+   "post_id": 138720,
+   "type": "facility",
+   "text": "Wallkill"
+  },
+  {
+   "post_id": 138720,
+   "type": "facility",
+   "text": "Five Points C.F."
+  },
+  {
+   "post_id": 138720,
+   "type": "condition",
+   "text": "mentally ill"
+  },
+  {
+   "post_id": 140211,
+   "type": "program",
+   "text": "Linus Project"
+  },
+  {
+   "post_id": 140211,
+   "type": "program",
+   "text": "veterans project"
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "Macon"
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "G.S.P."
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "Telfair S.P."
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "Hays S.P."
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "T.S.P."
+  },
+  {
+   "post_id": 140883,
+   "type": "place",
+   "text": "Montgomery"
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "Jackson S.P."
+  },
+  {
+   "post_id": 140883,
+   "type": "place",
+   "text": "Trion, GA"
+  },
+  {
+   "post_id": 140883,
+   "type": "facility",
+   "text": "H.S.P."
+  },
+  {
+   "post_id": 141270,
+   "type": "program",
+   "text": "GED"
+  },
+  {
+   "post_id": 141270,
+   "type": "facility",
+   "text": "ADX"
+  },
+  {
+   "post_id": 141270,
+   "type": "cultural_work",
+   "text": "Urban Novel's"
+  },
+  {
+   "post_id": 141270,
+   "type": "program",
+   "text": "Distance Learning Program"
+  },
+  {
+   "post_id": 141270,
+   "type": "place",
+   "text": "America"
+  },
+  {
+   "post_id": 141309,
+   "type": "place",
+   "text": "Kentucky"
+  },
+  {
+   "post_id": 141309,
+   "type": "law_policy",
+   "text": "Persistent Felony Offender laws"
+  },
+  {
+   "post_id": 141309,
+   "type": "organization",
+   "text": "Aramark"
+  },
+  {
+   "post_id": 141309,
+   "type": "place",
+   "text": "Florida"
+  },
+  {
+   "post_id": 141309,
+   "type": "facility",
+   "text": "Western Kentucky Correctional Facility"
+  },
+  {
+   "post_id": 141309,
+   "type": "event",
+   "text": "riot and fire"
+  },
+  {
+   "post_id": 141309,
+   "type": "facility",
+   "text": "North Point Training Center"
+  },
+  {
+   "post_id": 141309,
+   "type": "organization",
+   "text": "KDOC"
+  },
+  {
+   "post_id": 142503,
+   "type": "cultural_work",
+   "text": "Jeopardy"
+  },
+  {
+   "post_id": 142503,
+   "type": "facility",
+   "text": "MICHIGAN DEPARTMENT OF CORRECTION (MDOC)"
+  },
+  {
+   "post_id": 142503,
+   "type": "place",
+   "text": "Michigan"
+  },
+  {
+   "post_id": 142503,
+   "type": "place",
+   "text": "State of Michigan"
+  },
+  {
+   "post_id": 142503,
+   "type": "organization",
+   "text": "Parole Board"
+  },
+  {
+   "post_id": 144627,
+   "type": "facility",
+   "text": "USP Tucson"
+  },
+  {
+   "post_id": 144627,
+   "type": "event",
+   "text": "Covid-19 pandemic"
+  },
+  {
+   "post_id": 144627,
+   "type": "law_policy",
+   "text": "Stay In Place initiative"
+  },
+  {
+   "post_id": 144627,
+   "type": "organization",
+   "text": "Federal Bureau of Prisons"
+  },
+  {
+   "post_id": 144627,
+   "type": "cultural_work",
+   "text": "Shakespeare"
+  },
+  {
+   "post_id": 145512,
+   "type": "facility",
+   "text": "jail"
+  },
+  {
+   "post_id": 153341,
+   "type": "cultural_work",
+   "text": "Emotions"
+  },
+  {
+   "post_id": 153341,
+   "type": "facility",
+   "text": "Garza West"
+  },
+  {
+   "post_id": 153341,
+   "type": "facility",
+   "text": "County Jail"
+  },
+  {
+   "post_id": 156296,
+   "type": "event",
+   "text": "Injustice Awareness Month"
+  }
+ ]
+}

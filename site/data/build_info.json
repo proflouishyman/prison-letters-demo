@@ -1,0 +1,402 @@
+{
+ "fixture": false,
+ "generated_at": "2026-11-10T15:00:36Z",
+ "git_sha": "ad24c4b",
+ "models": {
+  "embedding": [
+   "Xenova/bge-small-en-v1.5"
+  ],
+  "entities": [
+   "gemma4:26b"
+  ],
+  "themes": [
+   "gemma4:26b"
+  ],
+  "transcription": [
+   "mlx-community/Qwen3-VL-32B-Instruct-4bit",
+   "pdf-text-layer",
+   "qwen3-vl:8b-instruct-q8_0",
+   "richardyoung/olmocr2:7b-q8"
+  ]
+ },
+ "counts": {
+  "essays": 20,
+  "chunks": 51,
+  "entities_public": 99,
+  "entities_unverified_dropped": 4,
+  "entities_person_dropped": 39,
+  "themes": 20,
+  "demo_letters": 20,
+  "crops": 44,
+  "crops_unaligned": 47,
+  "text_redactions": 28
+ },
+ "snippet_chars": 100,
+ "max_exposure": 0.15,
+ "exposure": {
+  "fraction": 0.121426,
+  "percent": 12.143,
+  "chars_published": 7100,
+  "chars_total": 58472
+ },
+ "crop_alignment": {
+  "threshold": 0.6,
+  "aligned": {
+   "chunk": 22,
+   "essay": 11,
+   "demo": 11
+  },
+  "unaligned": {
+   "chunk": 29,
+   "essay": 9,
+   "demo": 9
+  },
+  "similarity_min": 0.6286,
+  "similarity_median": 0.9062,
+  "unaligned_list": [
+   {
+    "target": "chunk",
+    "id": "136440-1",
+    "reason": "best similarity 0.489 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "136440-2",
+    "reason": "best similarity 0.480 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "136842-0",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "136842-1",
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "137559-0",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138462-0",
+    "reason": "best similarity 0.525 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138462-1",
+    "reason": "best similarity 0.500 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138462-2",
+    "reason": "best similarity 0.495 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138495-0",
+    "reason": "best similarity 0.541 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138495-1",
+    "reason": "best similarity 0.551 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138495-3",
+    "reason": "best similarity 0.592 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138495-4",
+    "reason": "best similarity 0.505 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "138720-0",
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138720-1",
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138720-2",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138720-3",
+    "reason": "crop would show 17 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138720-4",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "138852-1",
+    "reason": "crop would show 2 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "141270-1",
+    "reason": "best similarity 0.455 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "141309-0",
+    "reason": "best similarity 0.510 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "141309-1",
+    "reason": "best similarity 0.598 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "142032-1",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "144627-1",
+    "reason": "best similarity 0.526 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "144627-2",
+    "reason": "best similarity 0.565 < 0.6"
+   },
+   {
+    "target": "chunk",
+    "id": "145512-1",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "145512-2",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "153341-0",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "153341-1",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "chunk",
+    "id": "153341-2",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "essay",
+    "id": "136440",
+    "reason": "best similarity 0.581 < 0.6"
+   },
+   {
+    "target": "essay",
+    "id": "136842",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "essay",
+    "id": "137559",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "essay",
+    "id": "138495",
+    "reason": "best similarity 0.490 < 0.6"
+   },
+   {
+    "target": "essay",
+    "id": "138720",
+    "reason": "best similarity 0.578 < 0.6"
+   },
+   {
+    "target": "essay",
+    "id": "138852",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "essay",
+    "id": "141270",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "essay",
+    "id": "141309",
+    "reason": "best similarity 0.462 < 0.6"
+   },
+   {
+    "target": "essay",
+    "id": "153341",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "demo",
+    "id": "136440",
+    "reason": "best similarity 0.581 < 0.6"
+   },
+   {
+    "target": "demo",
+    "id": "136842",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "demo",
+    "id": "137559",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "demo",
+    "id": "138495",
+    "reason": "best similarity 0.490 < 0.6"
+   },
+   {
+    "target": "demo",
+    "id": "138720",
+    "reason": "best similarity 0.578 < 0.6"
+   },
+   {
+    "target": "demo",
+    "id": "138852",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "demo",
+    "id": "141270",
+    "reason": "crop would show 3 line(s) outside the snippet's matched window"
+   },
+   {
+    "target": "demo",
+    "id": "141309",
+    "reason": "best similarity 0.462 < 0.6"
+   },
+   {
+    "target": "demo",
+    "id": "153341",
+    "reason": "crop would show 1 line(s) outside the snippet's matched window"
+   }
+  ]
+ },
+ "image_exposure": {
+  "cap": 0.6,
+  "overall": 0.067512,
+  "max": 0.278396,
+  "mean": 0.09223,
+  "per_letter": [
+   {
+    "post_id": 136440,
+    "fraction": 0.079217,
+    "crops": 1
+   },
+   {
+    "post_id": 136842,
+    "fraction": 0.0,
+    "crops": 0
+   },
+   {
+    "post_id": 136995,
+    "fraction": 0.150606,
+    "crops": 6
+   },
+   {
+    "post_id": 137424,
+    "fraction": 0.122356,
+    "crops": 4
+   },
+   {
+    "post_id": 137559,
+    "fraction": 0.0,
+    "crops": 0
+   },
+   {
+    "post_id": 137829,
+    "fraction": 0.24163,
+    "crops": 4
+   },
+   {
+    "post_id": 138462,
+    "fraction": 0.128903,
+    "crops": 2
+   },
+   {
+    "post_id": 138495,
+    "fraction": 0.0499,
+    "crops": 1
+   },
+   {
+    "post_id": 138720,
+    "fraction": 0.0,
+    "crops": 0
+   },
+   {
+    "post_id": 138852,
+    "fraction": 0.076992,
+    "crops": 1
+   },
+   {
+    "post_id": 140211,
+    "fraction": 0.116895,
+    "crops": 5
+   },
+   {
+    "post_id": 140883,
+    "fraction": 0.229799,
+    "crops": 3
+   },
+   {
+    "post_id": 141270,
+    "fraction": 0.036422,
+    "crops": 1
+   },
+   {
+    "post_id": 141309,
+    "fraction": 0.0,
+    "crops": 0
+   },
+   {
+    "post_id": 142032,
+    "fraction": 0.09623,
+    "crops": 3
+   },
+   {
+    "post_id": 142503,
+    "fraction": 0.278396,
+    "crops": 4
+   },
+   {
+    "post_id": 144627,
+    "fraction": 0.072515,
+    "crops": 3
+   },
+   {
+    "post_id": 145512,
+    "fraction": 0.07909,
+    "crops": 3
+   },
+   {
+    "post_id": 153341,
+    "fraction": 0.0,
+    "crops": 0
+   },
+   {
+    "post_id": 156296,
+    "fraction": 0.085641,
+    "crops": 3
+   }
+  ]
+ }
+}

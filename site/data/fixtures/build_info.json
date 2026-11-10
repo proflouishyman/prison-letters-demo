@@ -26,7 +26,10 @@
   "entities_unverified_dropped": 0,
   "entities_person_dropped": 0,
   "themes": 20,
-  "demo_letters": 20
+  "demo_letters": 20,
+  "crops": 3,
+  "crops_unaligned": 77,
+  "text_redactions": 0
  },
  "snippet_chars": 160,
  "max_exposure": 0.15,
@@ -35,5 +38,420 @@
   "percent": 0.0,
   "chars_published": 0,
   "chars_total": 0
+ },
+ "crop_alignment": {
+  "threshold": 0.6,
+  "aligned": {
+   "chunk": 1,
+   "essay": 1,
+   "demo": 1
+  },
+  "unaligned": {
+   "chunk": 39,
+   "essay": 19,
+   "demo": 19
+  },
+  "similarity_min": 0.91,
+  "similarity_median": 0.93,
+  "unaligned_list": [
+   {
+    "target": "chunk",
+    "id": "900001-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900002-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900002-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900003-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900003-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900004-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900004-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900005-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900005-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900006-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900006-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900007-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900007-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900008-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900008-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900009-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900009-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900010-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900010-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900011-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900011-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900012-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900012-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900013-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900013-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900014-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900014-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900015-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900015-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900016-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900016-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900017-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900017-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900018-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900018-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900019-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900019-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900020-0",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "chunk",
+    "id": "900020-1",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900002",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900003",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900004",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900005",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900006",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900007",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900008",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900009",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900010",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900011",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900012",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900013",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900014",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900015",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900016",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900017",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900018",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900019",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "essay",
+    "id": "900020",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900002",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900003",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900004",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900005",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900006",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900007",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900008",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900009",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900010",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900011",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900012",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900013",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900014",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900015",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900016",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900017",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900018",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900019",
+    "reason": "fixture: no page boxes for this letter"
+   },
+   {
+    "target": "demo",
+    "id": "900020",
+    "reason": "fixture: no page boxes for this letter"
+   }
+  ]
+ },
+ "image_exposure": {
+  "cap": 0.2,
+  "overall": 0.1,
+  "max": 0.1,
+  "mean": 0.1,
+  "per_letter": [
+   {
+    "post_id": 900001,
+    "fraction": 0.1,
+    "crops": 3
+   }
+  ]
  }
 }

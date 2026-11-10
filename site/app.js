@@ -72,6 +72,27 @@ function errorPanel(title, e) {
     h("div", {}, "File: ", h("b", {}, e.file || "(unknown)")), h("div", {}, "Field: ", h("b", {}, e.field || "(unknown)")), h("div", {}, e.detail || e.message));
 }
 
+/* ============ 1b. SCAN CROPS (next to each text snippet) ============ */
+
+/** Set once data is loaded: {base, crops: Map("target:id" -> crop row), essays: Map(post_id -> essay row)}. */
+const scans = { base: "", crops: new Map(), essays: new Map() };
+
+/**
+ * The crop of the original page scan for one snippet, linked to the PDF page on prisonwitness.org.
+ * target = "chunk" | "essay" | "demo"; id = chunk_id or post_id (as a string). A snippet with no crop row
+ * (alignment below threshold) gets an explicit note instead of an image, plus the PDF link.
+ */
+function scanFigure(target, id, postId) {
+  const crop = scans.crops.get(`${target}:${id}`), essay = scans.essays.get(postId);
+  const pdf = essay?.pdf_url;
+  if (!crop) return h("div", { class: "scan noscan muted" }, "no matching scan region ", pdf ? h("a", { href: pdf }, "(open the original PDF)") : null);
+  const img = h("img", { src: scans.base + crop.file, alt: "Scan of the original page (crop)", loading: "lazy" });
+  // A crop file that fails to load is shown, not hidden.
+  img.addEventListener("error", () => img.replaceWith(h("div", { class: "errpanel" }, `Scan crop failed to load: ${crop.file}`)));
+  return h("div", { class: "scan" }, pdf ? h("a", { href: `${pdf}#page=${crop.page}`, title: `Open page ${crop.page} of the original PDF` }, img) : img,
+    h("div", { class: "muted" }, `Original scan, page ${crop.page}`, pdf ? h("span", {}, " | ", h("a", { href: `${pdf}#page=${crop.page}` }, "open the page in the PDF")) : null));
+}
+
 /* ============ 2. WORD-LEVEL DIFF ============ */
 
 /**
@@ -117,7 +138,13 @@ function renderDiffSide(ops, side) {
 const pct = (x) => (x * 100).toFixed(1) + "%";
 const mean = (xs) => xs.reduce((s, x) => s + x, 0) / xs.length;
 
-/** Mean CER/WER for each model within each handwriting group: {model:{group:{cer,wer,n}}}. */
+const median = (xs) => { const v = [...xs].sort((x, y) => x - y), k = v.length >> 1; return v.length % 2 ? v[k] : (v[k - 1] + v[k]) / 2; };
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+
+/** Per model and handwriting group: mean and median of the headline scores (CER/WER ignoring capitals and
+ * punctuation) plus the mean exact scores, as {model:{group:{cer,cerMedian,wer,werMedian,exactCer,exactWer,n,failed,empty}}}.
+ * Letters where the model failed on a page (cer === null) are left out of the statistics; `failed` counts those
+ * pages. `empty` counts letters where the model's output is completely empty (e.g. a PDF with no text layer). */
 function summarise(letters) {
   const acc = {};
   for (const l of letters) for (const m of l.models) {
@@ -126,7 +153,19 @@ function summarise(letters) {
   const out = {};
   for (const [model, groups] of Object.entries(acc)) {
     out[model] = {};
-    for (const [g, ms] of Object.entries(groups)) out[model][g] = { cer: mean(ms.map((m) => m.cer)), wer: mean(ms.map((m) => m.wer)), n: ms.length };
+    for (const [g, ms] of Object.entries(groups)) {
+      const ok = ms.filter((m) => m.cer !== null);
+      const col = (k) => ok.map((m) => m[k]);
+      const stat = (k, f) => (ok.length ? f(col(k)) : null);
+      out[model][g] = {
+        cer: stat("cer_lower_nopunct", mean), cerMedian: stat("cer_lower_nopunct", median),
+        wer: stat("wer_lower_nopunct", mean), werMedian: stat("wer_lower_nopunct", median),
+        exactCer: stat("cer", mean), exactWer: stat("wer", mean),
+        n: ok.length, failed: ms.reduce((t, m) => t + (m.failed_pages ?? 0), 0),
+        empty: ok.filter((m) => m.excerpt.trim() === "" && !m.excerpt_unaligned).length,
+        unaligned: ok.filter((m) => m.excerpt_unaligned === true).length,
+      };
+    }
   }
   return out;
 }
@@ -142,28 +181,43 @@ function renderAccuracy(root, demo, mode) {
     h("div", { class: "note" }, h("b", {}, "What CER and WER mean. "),
       "CER (character error rate) counts wrong, missing or extra letters. A CER of 5% means about 5 wrong characters in every 100. ",
       "WER (word error rate) does the same for whole words: a WER of 10% means about 10 wrong words in every 100. ",
-      "Handwriting is usually harder than typewriting. Rates are averaged over the letters in each group; \"n\" is how many letters that is."));
+      "Handwriting is usually harder than typewriting. Each group shows the mean and the median over its letters, so one stuck letter does not define the group; \"n\" is how many letters were scored. Where a model failed on a page of a letter (for example, it got stuck repeating itself), that letter is left out and the failure is counted in the table."),
+    h("div", { class: "note" }, h("b", {}, "Why the main scores ignore capitals and punctuation. "),
+      "Transcribers normalize case and punctuation by convention. One letter is typed entirely in capitals, but the archive's transcriber wrote it in ordinary sentence case, so a model that copies the capitals exactly is marked wrong on almost every letter. ",
+      "That is a house style, not a reading error, so the headline scores ignore capitals and punctuation. The \"exact\" columns count them."));
 
-  const head = h("tr", {}, h("th", {}, "Model"), groups.map((g) => [h("th", {}, `${g}: CER`), h("th", {}, `${g}: WER`)]));
-  const rows = models.map((m) => h("tr", {}, h("td", {}, m), groups.map((g) => {
-    const s = sum[m][g];
-    return s ? [h("td", {}, `${pct(s.cer)} (n=${s.n})`), h("td", {}, pct(s.wer))] : [h("td", {}, "no data"), h("td", {}, "no data")];
-  })));
+  const head = h("tr", {}, ["Model", "Letters", "CER, ignoring capitals and punctuation (mean)", "CER (median)", "WER, ignoring capitals and punctuation (mean)",
+    "WER (median)", "CER exact (counts capitals and punctuation)", "WER exact (counts capitals and punctuation)", "Notes"].map((t) => h("th", {}, t)));
+  const rows = [];
+  for (const g of groups) {
+    rows.push(h("tr", { class: "grouprow" }, h("th", { colspan: 9 }, g)));
+    for (const m of models) {
+      const s = sum[m][g];
+      if (!s) { rows.push(h("tr", {}, h("td", {}, m), h("td", { colspan: 8 }, "no data"))); continue; }
+      const notes = [];
+      if (s.failed) notes.push(`failed on ${plural(s.failed, "page")}`);
+      if (s.empty) notes.push(m === "pdf-text-layer" ? `no text layer on ${plural(s.empty, "letter")}` : `empty output on ${plural(s.empty, "letter")}`);
+      if (s.unaligned) notes.push(`excerpt withheld (not aligned to the archive text) on ${plural(s.unaligned, "letter")}`);
+      const c = (x) => h("td", {}, x === null ? "no score" : pct(x));
+      rows.push(h("tr", {}, h("td", {}, m === "pdf-text-layer" ? "PDF text layer" : m), h("td", {}, `n=${s.n}`),
+        c(s.cer), c(s.cerMedian), c(s.wer), c(s.werMedian), c(s.exactCer), c(s.exactWer), h("td", {}, notes.join("; "))));
+    }
+  }
   root.append(h("div", { class: "tablewrap" }, h("table", {}, h("thead", {}, head), h("tbody", {}, rows))));
 
-  // Bar chart (CSS bars): average character error per model, one bar per handwriting group.
+  // Bar chart (CSS bars): mean headline character error per model, one bar per handwriting group.
   const maxCer = Math.max(0.01, ...models.flatMap((m) => groups.map((g) => sum[m][g]?.cer ?? 0)));
-  root.append(h("h3", {}, "Average character error rate (shorter bar is better)"),
+  root.append(h("h3", {}, "Average character error rate, ignoring capitals and punctuation (shorter bar is better)"),
     h("div", { class: "bars" }, models.map((m) => h("div", { class: "row" }, h("span", {}, m),
       h("div", { class: "bartrack" }, groups.map((g) => {
         const s = sum[m][g];
-        return s ? h("div", { class: "bar " + (g === "typed" ? "typed" : ""), style: `width:${(s.cer / maxCer) * 100}%`, title: `${g}: ${pct(s.cer)}` }) : null;
+        return s && s.cer !== null ? h("div", { class: "bar " + (g === "typed" ? "typed" : ""), style: `width:${(s.cer / maxCer) * 100}%`, title: `${g}: ${pct(s.cer)}` }) : null;
       }))))),
     h("p", { class: "muted" }, "Blue bars: handwritten. Orange bars: typed. Where a group has a third colour or no bar, see the table."));
 
   root.append(h("h3", {}, "Look at one letter"));
   if (mode !== "local")
-    root.append(h("div", { class: "note" }, `Only the first ${PUBLIC_EXCERPT_MAX} characters (an excerpt) of each letter are published here, so the word-by-word comparison below runs on those excerpts only, not on the whole letter. Scores in the table are as recorded in the data file.`));
+    root.append(h("div", { class: "note" }, `Only the first ${PUBLIC_EXCERPT_MAX} characters (an excerpt) of each letter are published here, and a model's words that do not line up with the archive's text are left out, so the word-by-word comparison below runs on those excerpts only, not on the whole letter. Scores in the table are as recorded in the data file.`));
   const sel = h("select", { "aria-label": "Choose a letter" }, letters.map((l, i) => h("option", { value: i }, `${l.title} (${l.handwriting})`)));
   const view = h("div", {});
   const draw = () => {
@@ -171,11 +225,22 @@ function renderAccuracy(root, demo, mode) {
     view.replaceChildren(
       h("p", { class: "muted" }, `${l.state ?? "state not shown"}, ${l.year ?? "year not shown"}, ${l.pages} page(s). `, h("a", { href: l.url }, "Read the essay on prisonwitness.org")),
       h("p", { class: "muted" }, "Highlights: ", h("mark", { class: "del" }, "word the model missed"), " ", h("mark", { class: "sub" }, "different word"), " ", h("mark", { class: "ins" }, "extra word added by the model")),
-      h("div", { class: "box" }, h("h4", {}, "Human transcription (the answer)"), l.archive_excerpt));
+      h("div", { class: "box" }, h("h4", {}, "Human transcription (the answer)"), l.archive_excerpt),
+      scanFigure("demo", String(l.post_id), l.post_id));
     const grid = h("div", { class: "cols two" });
     for (const m of l.models) {
+      if (m.cer === null) {
+        grid.append(h("div", { class: "box" }, h("h4", {}, `${m.model}: failed on ${m.failed_pages} page${m.failed_pages === 1 ? "" : "s"}`),
+          h("p", {}, "This model did not produce a usable transcription of this letter. ", m.failures.map((f) => `Page ${f.page}: ${f.reason}`).join(" "))));
+        continue;
+      }
+      if (m.excerpt_unaligned) {
+        grid.append(h("div", { class: "box" }, h("h4", {}, `${m.model}: CER ${pct(m.cer_lower_nopunct)}, WER ${pct(m.wer_lower_nopunct)} (exact: CER ${pct(m.cer)}, WER ${pct(m.wer)})`),
+          h("p", { class: "muted" }, "No excerpt is shown: this model's text could not be lined up with the archive's published excerpt, and the page does not show text the archive left out. The scores above still cover the whole letter.")));
+        continue;
+      }
       const ops = wordDiff(l.archive_excerpt, m.excerpt);
-      grid.append(h("div", { class: "box" }, h("h4", {}, `${m.model}: CER ${pct(m.cer)}, WER ${pct(m.wer)}`), h("div", {}, renderDiffSide(ops, "b")),
+      grid.append(h("div", { class: "box" }, h("h4", {}, `${m.model}: CER ${pct(m.cer_lower_nopunct)}, WER ${pct(m.wer_lower_nopunct)} (exact: CER ${pct(m.cer)}, WER ${pct(m.wer)})`), h("div", {}, renderDiffSide(ops, "b")),
         h("details", {}, h("summary", {}, "Human text with the differences marked"), renderDiffSide(ops, "a"))));
     }
     view.append(grid);
@@ -287,7 +352,7 @@ async function renderSearch(root, data) {
         const e = essays.get(pid), ci = (kw?.best.get(pid) ?? sem?.best.get(pid));
         const how = [kw?.ids.includes(pid) ? `keyword #${kw.ids.indexOf(pid) + 1}` : null, sem ? `semantic #${sem.ids.indexOf(pid) + 1}` : null].filter(Boolean).join(", ");
         out.push(h("div", { class: "result" }, h("b", {}, e.title), h("div", { class: "meta" }, `${e.author ?? "author not shown"} | ${e.state ?? "state not shown"} | ${e.year ?? "year not shown"} | ${how}`),
-          h("div", {}, chunks[ci].snippet + " ..."), h("a", { href: e.url }, "Read the essay on prisonwitness.org")));
+          h("div", {}, chunks[ci].snippet + " ..."), scanFigure("chunk", chunks[ci].chunk_id, pid), h("a", { href: e.url }, "Read the essay on prisonwitness.org")));
       }
     }
     results.replaceChildren(...out);
@@ -315,7 +380,10 @@ function renderContents(root, data) {
   const view = h("div", {});
   const draw = () => {
     const e = essays[+sel.value], mine = ents.filter((x) => x.post_id === e.post_id), th = themes.find((t) => t.post_id === e.post_id);
-    view.replaceChildren(h("h3", {}, "Mentioned in this letter"),
+    view.replaceChildren(
+      h("h3", {}, "Opening of this letter"),
+      e.excerpt === null ? h("p", { class: "muted" }, "This essay has no transcript in the archive.") : h("div", {}, h("div", {}, e.excerpt + " ..."), scanFigure("essay", String(e.post_id), e.post_id)),
+      h("h3", {}, "Mentioned in this letter"),
       ...ENTITY_TYPES.map((t) => { const xs = [...new Set(mine.filter((x) => x.type === t).map((x) => x.text))];
         return h("div", {}, h("b", {}, t.replace("_", " ") + ": "), xs.length ? xs.map((x) => h("span", { class: "chip" }, x)) : h("span", { class: "muted" }, "none found")); }),
       h("h3", {}, "Themes and tone"),
@@ -358,6 +426,9 @@ async function main() {
     errs.append(h("p", {}, `Could not load data from ${cfg.base}. Nothing is shown rather than showing something wrong.`), ...errors.map((e) => errorPanel("Data problem", e)));
     return;
   }
+  scans.base = cfg.base;
+  scans.crops = new Map(data.crops.crops.map((c) => [`${c.target}:${c.id}`, c]));
+  scans.essays = new Map(data.essays.essays.map((e) => [e.post_id, e]));
   document.getElementById("app").hidden = false;
   try {
     renderAccuracy(document.getElementById("accuracy"), data["transcription_demo"], cfg.mode);

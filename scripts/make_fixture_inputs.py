@@ -66,6 +66,7 @@ def make_fixture(root):
         ents.append(dict(base, type="person", text="Fake Person", quote=q, start=s, end=s + len(q), verified=True))
         ents.append(dict(base, type="place", text="not in text", quote="not in text", start=0, end=11,
                          verified=False))
+    _fixture_pages(root, pids[0], transcripts[pids[0]])
     _jsonl(root / "enrich" / "chunks.jsonl", chunks)
     _jsonl(root / "enrich" / "entities.jsonl", ents)
     _jsonl(root / "enrich" / "themes.jsonl", [
@@ -99,6 +100,29 @@ def make_fixture(root):
     (root / "site" / "data" / "transcription_demo.json").write_text(json.dumps(demo(False)))
     (root / "site" / "data" / "local" / "transcription_demo.json").write_text(json.dumps(demo(True)))
     return root
+
+
+def _fixture_pages(root, pid, transcript):
+    """One fake, very tall page for the first fixture letter (one OCR line per sentence) plus its page_boxes row.
+    Only this letter has a scan; every other letter's snippets are counted as unaligned by the build."""
+    from PIL import Image, ImageDraw
+    sentences = [s.strip() + "." for s in transcript.split(".") if s.strip()]
+    W, LH, STEP = 850, 20, 22
+    H = len(sentences) * STEP + 40
+    d = root / "data" / "pages" / str(pid)
+    d.mkdir(parents=True, exist_ok=True)
+    im = Image.new("L", (W, H), 255)
+    dr = ImageDraw.Draw(im)
+    lines = []
+    for k, text in enumerate(sentences):
+        y = 20 + k * STEP
+        dr.rectangle([40, y, 40 + 8 * len(text), y + LH], fill=200)
+        lines.append({"text": text, "confidence": 1.0, "box": [40, y, 40 + 8 * len(text), y + LH],
+                      "words": [{"text": w, "box": [40, y, 41, y + LH]} for w in text.split()]})
+    im.save(d / "page_001.png")
+    row = {"post_id": pid, "page": 1, "width": W, "height": H, "engine": "FIXTURE", "created_at": "2000-01-01T00:00:00Z",
+           "lines": lines}
+    (root / "enrich" / "page_boxes.jsonl").write_text(json.dumps(row) + "\n")
 
 
 def _jsonl(path, rows):

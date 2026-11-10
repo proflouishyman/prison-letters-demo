@@ -1,0 +1,319 @@
+{
+ "fixture": false,
+ "generated_at": "2026-11-10T15:00:36Z",
+ "themes": [
+  {
+   "post_id": 136440,
+   "subjects": [
+    "Law",
+    "Death penalty",
+    "Sentencing",
+    "Dehumanization"
+   ],
+   "affect": [
+    "anger",
+    "resilience",
+    "dignity"
+   ],
+   "sentiment": "negative",
+   "stance": "testifying",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 136842,
+   "subjects": [
+    "Dehumanization",
+    "Religion",
+    "Family"
+   ],
+   "affect": [
+    "anger",
+    "hope",
+    "faith"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 136995,
+   "subjects": [
+    "Death penalty",
+    "Law",
+    "Dehumanization",
+    "Sentencing"
+   ],
+   "affect": [
+    "anger",
+    "grief"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 137424,
+   "subjects": [
+    "Voting rights",
+    "Law"
+   ],
+   "affect": [
+    "anger",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 137559,
+   "subjects": [
+    "Death penalty",
+    "Law"
+   ],
+   "affect": [
+    "anger"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 137829,
+   "subjects": [
+    "Law",
+    "Federal prisons",
+    "Labor"
+   ],
+   "affect": [
+    "anger",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 138462,
+   "subjects": [
+    "Law",
+    "Dehumanization",
+    "Prison-industrial complex",
+    "Death penalty"
+   ],
+   "affect": [
+    "anger",
+    "grief"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 138495,
+   "subjects": [
+    "Family",
+    "Law",
+    "Writing",
+    "Dehumanization"
+   ],
+   "affect": [
+    "anger",
+    "fear",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 138720,
+   "subjects": [
+    "Prison-industrial complex",
+    "Mental health",
+    "Solitary confinement",
+    "Law"
+   ],
+   "affect": [
+    "anger",
+    "resilience",
+    "dignity"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 138852,
+   "subjects": [
+    "Religion",
+    "Writing"
+   ],
+   "affect": [
+    "resilience",
+    "faith"
+   ],
+   "sentiment": "positive",
+   "stance": "creative",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 140211,
+   "subjects": [
+    "Labor",
+    "Education",
+    "Family",
+    "Writing"
+   ],
+   "affect": [
+    "hope",
+    "resilience",
+    "dignity"
+   ],
+   "sentiment": "positive",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 140883,
+   "subjects": [
+    "Labor",
+    "Food",
+    "Sanitation",
+    "Education"
+   ],
+   "affect": [
+    "anger",
+    "fear"
+   ],
+   "sentiment": "negative",
+   "stance": "describing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 141270,
+   "subjects": [
+    "Education",
+    "Writing",
+    "Federal prisons"
+   ],
+   "affect": [
+    "resilience",
+    "hope"
+   ],
+   "sentiment": "positive",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 141309,
+   "subjects": [
+    "Food",
+    "Law",
+    "Prison-industrial complex"
+   ],
+   "affect": [
+    "anger"
+   ],
+   "sentiment": "negative",
+   "stance": "describing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 142032,
+   "subjects": [
+    "Mental health",
+    "Writing",
+    "Dehumanization"
+   ],
+   "affect": [
+    "resilience",
+    "hope"
+   ],
+   "sentiment": "positive",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 142503,
+   "subjects": [
+    "Labor",
+    "Law",
+    "Prison-industrial complex"
+   ],
+   "affect": [
+    "anger"
+   ],
+   "sentiment": "negative",
+   "stance": "arguing",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 144627,
+   "subjects": [
+    "COVID-19 pandemic",
+    "Death",
+    "Family",
+    "Mental health"
+   ],
+   "affect": [
+    "grief",
+    "anger",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 145512,
+   "subjects": [
+    "Death",
+    "Religion",
+    "Jails",
+    "Family"
+   ],
+   "affect": [
+    "grief",
+    "hope",
+    "faith"
+   ],
+   "sentiment": "positive",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 153341,
+   "subjects": [
+    "Food",
+    "Family",
+    "Dehumanization",
+    "Heat and cold"
+   ],
+   "affect": [
+    "grief",
+    "hope",
+    "resilience",
+    "isolation"
+   ],
+   "sentiment": "mixed",
+   "stance": "reflecting",
+   "model": "gemma4:26b"
+  },
+  {
+   "post_id": 156296,
+   "subjects": [
+    "Death penalty",
+    "Dehumanization",
+    "Law"
+   ],
+   "affect": [
+    "grief",
+    "resilience"
+   ],
+   "sentiment": "negative",
+   "stance": "creative",
+   "model": "gemma4:26b"
+  }
+ ]
+}
