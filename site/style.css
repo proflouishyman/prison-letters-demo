@@ -42,3 +42,10 @@ footer{border-top:1px solid var(--line);margin-top:2.5rem;padding:1rem 0 3rem;fo
 .scan { margin: .5rem 0; }
 .scan img { display: block; width: 100%; max-width: 900px; height: auto; border: 1px solid #bbb; border-radius: 3px; }
 .scan.noscan { font-size: .85rem; font-style: italic; }
+/* Introduction: local models and model choice */
+#intro{max-width:60rem;margin:0 auto}
+#intro .small,.small{font-size:.9rem;color:var(--muted,#555)}
+table.models{width:100%;border-collapse:collapse;font-size:.95rem;margin:.6rem 0}
+table.models th,table.models td{text-align:left;vertical-align:top;padding:.4rem .5rem;border-bottom:1px solid var(--line)}
+table.models td:first-child{font-weight:600;white-space:nowrap}
+@media (max-width:40rem){table.models td:first-child{white-space:normal}}

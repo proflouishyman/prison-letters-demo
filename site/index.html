@@ -13,11 +13,69 @@
   <p class="lead">Twenty letters from the American Prison Writing Archive, used to ask three questions about
   AI tools that run on local computers. Full essays are not shown here; the archive remains the place to read them.</p>
   <nav aria-label="Sections">
+    <a href="#intro">Introduction</a>
     <a href="#accuracy">1. Transcription</a>
     <a href="#search">2. Search</a>
     <a href="#contents">3. What's in the letters</a>
   </nav>
 </header>
+<section id="intro" class="intro">
+  <h2>Introduction: what "local models" means</h2>
+  <p>Everything on this page that involved AI was done by <strong>local models</strong>: AI models whose files were
+  downloaded once onto an ordinary desktop computer (a Mac) and run there, the way you would install and run any
+  other program. The letters, the page scans and the results never left that computer.</p>
+  <p>That is different from uploading a document to Claude, ChatGPT or Gemini. When you upload, a copy of the letter
+  goes to the company's servers and is processed there, under that company's terms for storage, retention and
+  review. Even with "don't train on my data" settings, the archive no longer holds the only copy, and cannot fully
+  control or recall it. For a collection whose authors keep their copyright, can ask for their work to be taken
+  down, and may face real consequences from what they wrote, that matters.</p>
+  <div class="note">
+    <p><strong>What local gives an archive:</strong> the text stays in-house; it can work with no internet
+    connection; there is no per-page fee; and the exact model version is fixed, so results can be checked and
+    reproduced later.</p>
+    <p><strong>What it costs:</strong> local models are smaller than the largest cloud models, they need a capable
+    computer, and someone has to set them up. Part of what this demo asks is whether they are good enough anyway.</p>
+  </div>
+  <p class="small">Honesty note: the code for this demo was written with help from Claude, an AI coding assistant,
+  which looked at a few excerpts and page crops while checking the work. The transcription, entity extraction and
+  theme tagging of the letters themselves all ran on the local models below.</p>
+
+  <h3>Which models, and why</h3>
+  <table class="models">
+    <thead><tr><th>Job</th><th>Model</th><th>Why this one</th></tr></thead>
+    <tbody>
+      <tr><td>Transcribe the scans</td>
+          <td>olmOCR 2 (7 billion parameters, Allen Institute for AI)</td>
+          <td>Built specifically for reading document images, and small enough for a desktop. Earlier tests on
+          historical documents picked it as the model to build on.</td></tr>
+      <tr><td></td>
+          <td>Qwen3-VL 8B Instruct (Alibaba's Qwen team)</td>
+          <td>A general-purpose vision model of similar size, to compare a specialist with a generalist. Run in
+          two programs (Ollama and oMLX) to see whether the software running the model changes the result.</td></tr>
+      <tr><td></td>
+          <td>Qwen3-VL 32B Instruct</td>
+          <td>The same family at four times the size, to test whether a bigger model reads handwriting better.
+          It did not: the small models were as accurate.</td></tr>
+      <tr><td></td>
+          <td>The PDF's own text layer</td>
+          <td>Not an AI model: the text already embedded in the archive's PDFs, as a baseline.</td></tr>
+      <tr><td>Find places, prisons, laws, programs; tag themes</td>
+          <td>Gemma 4 26B (Google, open weights)</td>
+          <td>Good at following instructions and returning structured results. Every item it finds must be an
+          exact quotation from the letter, checked by code, so it cannot invent entities.</td></tr>
+      <tr><td>Search by meaning</td>
+          <td>bge-small-en-v1.5 (Beijing Academy of AI)</td>
+          <td>Small enough to run inside your web browser, so your search words are not sent anywhere either.</td></tr>
+      <tr><td>Locate snippets on the scans</td>
+          <td>Apple Vision (built into macOS) and Tesseract</td>
+          <td>Conventional text recognition used only to find where text sits on the page, so the right crop can be
+          shown and names, ID numbers and addresses blacked out.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">All the models are "open-weight": anyone can download and run them. None of them was trained
+  on or adapted to this archive. Transcription was scored against the archive's own human transcriptions, which
+  are treated as the correct answer.</p>
+</section>
 <div id="errors" role="alert"></div>
 <main id="app" hidden>
   <section id="accuracy"></section>
